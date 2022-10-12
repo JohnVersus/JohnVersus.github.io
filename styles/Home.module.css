@@ -58,8 +58,8 @@
 .errortext {
   margin: 4rem 0;
   line-height: 1.5;
-  font-size: 1rem;
-  color: darkslateblue;
+  font-size: 1.5rem;
+  color: darkred;
 }
 
 .code {

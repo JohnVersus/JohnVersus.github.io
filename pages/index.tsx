@@ -27,12 +27,7 @@ const Home: NextPage = () => {
           <code className={styles.code}>Web2</code>
           🚀
         </p>
-        <p className={styles.description}>
-          <Image
-            src="https://komarev.com/ghpvc/?username=johnversus&label=Profile%20views&color=0e75b6&style=flat"
-            alt="johnversus"
-          />
-        </p>
+
         <h3>Languages and Tools:</h3>
         <div className={styles.grid}>
           <p>

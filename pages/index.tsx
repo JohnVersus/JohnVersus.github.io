@@ -33,17 +33,6 @@ const Home: NextPage = () => {
             alt="johnversus"
           />
         </p>
-
-        <div className={styles.grid}>
-          <p>
-            <a href="https://github.com/ryo-ma/github-profile-trophy">
-              <Image
-                src="https://github-profile-trophy.vercel.app/?username=johnversus"
-                alt="johnversus"
-              />
-            </a>
-          </p>
-        </div>
         <h3>Languages and Tools:</h3>
         <div className={styles.grid}>
           <p>
@@ -137,20 +126,7 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <p>
             <Image
-              src="https://github-readme-stats.vercel.app/api/top-langs?username=johnversus&show_icons=true&locale=en&layout=compact"
-              alt="johnversus"
-            />
-          </p>
-          <p>
-             
-            <Image
               src="https://github-readme-stats.vercel.app/api?username=johnversus&show_icons=true&locale=en"
-              alt="johnversus"
-            />
-          </p>
-          <p>
-            <Image
-              src="https://github-readme-streak-stats.herokuapp.com/?user=johnversus&"
               alt="johnversus"
             />
           </p>

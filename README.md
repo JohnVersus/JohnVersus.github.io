@@ -8,14 +8,6 @@
   />
 </p>
 
-<p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy"
-    ><img
-      src="https://github-profile-trophy.vercel.app/?username=johnversus"
-      alt="johnversus"
-  /></a>
-</p>
-
 <h3 align="center">Languages and Tools:</h3>
 <p align="center">
   <a href="https://expressjs.com" target="_blank" rel="noreferrer">
@@ -96,26 +88,10 @@
   </a>
 </p>
 
-<p>
-  <img
-    align="center"
-    src="https://github-readme-stats.vercel.app/api/top-langs?username=johnversus&show_icons=true&locale=en&layout=compact"
-    alt="johnversus"
-  />
-</p>
-
-<p>
+<p align="center">
   &nbsp;<img
     align="center"
     src="https://github-readme-stats.vercel.app/api?username=johnversus&show_icons=true&locale=en"
-    alt="johnversus"
-  />
-</p>
-
-<p>
-  <img
-    align="center"
-    src="https://github-readme-streak-stats.herokuapp.com/?user=johnversus&"
     alt="johnversus"
   />
 </p>

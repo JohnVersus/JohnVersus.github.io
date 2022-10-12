@@ -118,14 +118,7 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        <div className={styles.grid}>
-          <p>
-            <Image
-              src="https://github-readme-stats.vercel.app/api?username=johnversus&show_icons=true&locale=en"
-              alt="johnversus"
-            />
-          </p>
-        </div>
+        <p className={styles.errortext}>🛠Construction in Progress🏗</p>
       </main>
 
       <footer className={styles.footer}>

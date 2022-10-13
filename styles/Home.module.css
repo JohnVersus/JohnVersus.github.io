@@ -78,6 +78,9 @@
   flex-wrap: wrap;
   max-width: 800px;
   gap: 0.5rem;
+  background-color: lightgray;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .card {

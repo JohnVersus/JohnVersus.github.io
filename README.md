@@ -1,13 +1,6 @@
 <h1 align="center">Hi 👋, I'm John</h1>
 <h3 align="center">Integrating Web3 into Web2 🚀</h3>
 
-<p align="center">
-  <img
-    src="https://komarev.com/ghpvc/?username=johnversus&label=Profile%20views&color=0e75b6&style=flat"
-    alt="johnversus"
-  />
-</p>
-
 <h3 align="center">Languages and Tools:</h3>
 <p align="center">
   <a href="https://expressjs.com" target="_blank" rel="noreferrer">

@@ -59,3 +59,9 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

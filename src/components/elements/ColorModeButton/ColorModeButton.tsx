@@ -5,8 +5,8 @@ const ColorModeButton = () => {
   const [themeIcon, setThemeIcon] = useState<string>();
   const [state, setState] = useState<string>('');
   useEffect(() => {
-    // state === 'dark' && setThemeIcon('🌚');
-    // state === 'light' && setThemeIcon('🌞');
+    state === 'dark' && setThemeIcon('🌚');
+    state === 'light' && setThemeIcon('🌞');
     state === '' && checkTheme();
     return () => {
       checkThemeIcon();

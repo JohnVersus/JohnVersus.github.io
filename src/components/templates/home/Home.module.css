@@ -1,0 +1,9 @@
+.scrollContainer {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 95vh;
+}
+
+.scrollChild {
+  scroll-snap-align: center;
+}

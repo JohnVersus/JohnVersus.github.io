@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
+'use client';
+
 import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './Projects.module.css';
 import type { Project } from './types';
@@ -39,7 +39,7 @@ const Projects = () => {
 
   useEffect(() => {
     const checkArray = () => {
-      if (languages.length > 0 && languages.length === languageFilter.length) {
+      if (languages?.length > 0 && languages?.length === languageFilter?.length) {
         setLanguageFilter((e) => [...e, 'all']);
       }
     };

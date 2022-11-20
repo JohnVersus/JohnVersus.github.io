@@ -99,3 +99,11 @@ export interface Project {
   watchers_count: Number;
   web_commit_signoff_required: boolean;
 }
+
+export interface IProjectCard {
+  name: String;
+  description: String;
+  languages: URL;
+  repoUrl: URL;
+  filter: Array<string>;
+}

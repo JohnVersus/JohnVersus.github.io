@@ -13,7 +13,6 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
-
 .float:active {
   transform: scale(1.2);
 }

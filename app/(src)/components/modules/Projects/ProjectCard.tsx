@@ -4,6 +4,7 @@ import styles from './ProjectCard.module.css';
 import ProjectSelecter from './ProjectSelecter';
 import type { Project, IProjectCard } from './types';
 import axios from 'axios';
+import { clientApiPost } from 'utils/apiPost';
 
 const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {
   const [data, setData] = useState<Array<string>>([]);
@@ -28,14 +29,11 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
   }>();
   useEffect(() => {
     const getLanguages = async (languagesUrl: URL) => {
-      const myHeaders = new Headers();
-      myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`);
-      var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
+      const options = {
+        url: languagesUrl,
       };
-      const resp = await fetch(languagesUrl, requestOptions);
-      return resp.json();
+      const resp = await clientApiPost('getGitData', options);
+      return resp;
     };
     getLanguages(languages).then((e) => {
       setData(e);
@@ -53,15 +51,13 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
       const options = {
         url: repoUrl,
       };
-      const result = await axios.post('api/getProject', options, {
+      const result = await axios.post('api/getProjectMetadata', options, {
         // headers: {
         //   'content-type': 'application/json',
         // },
       });
-      console.log(result.data);
       const { title, description, ogData, twitterData } = result.data.metadata;
       setMetadata({ title, description, ogData, twitterData });
-      console.log({ title, description, ogData, twitterData });
     };
     repoUrl && getUrl();
   }, [repoUrl]);
@@ -69,11 +65,11 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
   if (Object.keys(data).filter((element) => filter.includes(element)).length) {
     return (
       <div className={styles.card}>
-        <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'100%'} alt={''}></img>
-        <p> {name}</p>
-        <p> {description}</p>
-        <p>{Object.keys(data).toString()}</p>
-        <p>{repoUrl.toString()}</p>
+        <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'auto'} alt={''}></img>
+        <div>
+          <p> {name}</p>
+          <p>{Object.keys(data).toString()}</p>
+        </div>
       </div>
     );
   }

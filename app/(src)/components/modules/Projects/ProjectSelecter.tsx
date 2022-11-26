@@ -1,5 +1,6 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { clientApiPost } from 'utils/apiPost';
 import ProjectCard from './ProjectCard';
 import styles from './Projects.module.css';
 import type { Project } from './types';
@@ -33,17 +34,31 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
   };
 
   const getLanguages = async (repos: Array<Project>) => {
+    console.time('Start');
+    if (repos.length) {
+      const languageArray: Array<string> = [];
+      for (const repo of repos) {
+        languageArray.push(repo.language?.toString());
+      }
+      let uniqueLanguages: Array<string> = [];
+      for (const language of languageArray) {
+        language && !uniqueLanguages.includes(language) && uniqueLanguages.push(language);
+      }
+
+      setLanguages(uniqueLanguages);
+      setLanguageFilter(uniqueLanguages);
+    }
+
     if (repos.length) {
       const allLanguages = await Promise.all(
         repos.map(async (project) => {
-          const myHeaders = new Headers();
-          myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`);
-          var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
+          const options = {
+            url: project.languages_url,
           };
-          const resp = await fetch(project.languages_url, requestOptions);
-          return resp.json();
+          const resp = clientApiPost('getGitData', options).then((data) => {
+            return data;
+          });
+          return resp;
         }),
       );
       const mainLanguages = allLanguages.map((e) => {
@@ -69,6 +84,8 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
       setLanguages(uniqueLanguages);
       setLanguageFilter(uniqueLanguages);
     }
+
+    console.timeEnd('Start');
   };
 
   useEffect(() => {

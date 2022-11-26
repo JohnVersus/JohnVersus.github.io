@@ -1,11 +1,20 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: clamp(350px, 20vw, 50vw);
-  height: 50vh;
+  align-items: flex-start;
+  width: clamp(350px, 25vw, 50vw);
+  height: 30vh;
   overflow: hidden;
   border-width: 0.5rem;
-  border-color: rgb(212, 23, 16);
-  background-color: aqua;
+  border-color: var(--light);
+  background-color: var(--dark);
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.card div p {
+  max-width: 100%;
+  margin: 0.1rem 0.1rem 0.1rem 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

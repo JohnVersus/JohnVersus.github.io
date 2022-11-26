@@ -65,6 +65,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
   if (Object.keys(data).filter((element) => filter.includes(element)).length) {
     return (
       <div className={styles.card}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'auto'} alt={''}></img>
         <div>
           <p> {name}</p>

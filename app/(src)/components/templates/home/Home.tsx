@@ -7,6 +7,7 @@ const Home = () => {
         <About />
       </div>
       <div className={styles.scrollChild}>
+        {/* @ts-ignore */}
         <Projects />
       </div>
     </div>

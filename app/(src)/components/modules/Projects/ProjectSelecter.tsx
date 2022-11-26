@@ -132,7 +132,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
         })}
       </form>
       <div className={styles.grid}>
-        {repos.length &&
+        {repos.length > 0 &&
           repos.map((repo: Project, i) => {
             return (
               <ProjectCard

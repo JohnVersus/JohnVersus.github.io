@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
 import { clientApiPost } from 'utils/apiPost';
 import styles from './Projects.module.css';
 import ProjectSelecter from './ProjectSelecter';
@@ -10,9 +12,18 @@ const getRepos = async (): Promise<Array<Project>> => {
   const response = await clientApiPost('getGitData', options);
   return response;
 };
-const Projects = async () => {
-  const repoData = await getRepos();
+const Projects = () => {
+  // const repoData = await getRepos();
+  const [repoData, setRepoData] = useState<Array<Project>>();
+
   let repos = [];
+  useEffect(() => {
+    const init = async () => {
+      const repoData = await getRepos();
+      setRepoData(repoData);
+    };
+    init();
+  }, []);
   if (repoData) {
     for (const repo of repoData) {
       if (repo.fork === false) {

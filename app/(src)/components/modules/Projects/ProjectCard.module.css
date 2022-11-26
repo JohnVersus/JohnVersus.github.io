@@ -5,7 +5,6 @@
   width: clamp(350px, 20vw, 50vw);
   height: 50vh;
   overflow: hidden;
-  gap: 1rem;
   border-width: 0.5rem;
   border-color: rgb(212, 23, 16);
   background-color: aqua;

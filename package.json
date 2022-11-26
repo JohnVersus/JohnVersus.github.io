@@ -10,11 +10,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arrow-js/core": "^1.0.0-alpha.2",
+    "axios": "^1.2.0",
+    "jsdom": "^20.0.3",
     "next": "^13.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/jsdom": "^20.0.1",
     "@types/node": "18.8.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

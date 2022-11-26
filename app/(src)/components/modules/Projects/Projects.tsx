@@ -4,7 +4,7 @@ import ProjectSelecter from './ProjectSelecter';
 import type { Project } from './types';
 
 const myHeaders = new Headers();
-myHeaders.append('Authorization', 'Bearer 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');
+myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`);
 var requestOptions = {
   method: 'GET',
   headers: myHeaders,
@@ -14,16 +14,20 @@ const getRepos = async (): Promise<Array<Project>> => {
   const response = await fetch('https://api.github.com/users/johnversus/repos', requestOptions);
   return response.json();
 };
-// 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
 const Projects = async () => {
-  const repos = await getRepos();
-  console.log(repos);
+  const repoData = await getRepos();
+  let repos = [];
+  for (const repo of repoData) {
+    if (repo.fork === false) {
+      repos.push(repo);
+    }
+  }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
           <a>My Git Projects</a>
-          <p className={styles.description}>Top 100</p>
+          <p className={styles.description}>Top {repos.length}</p>
         </h1>
 
         <div className={styles.filterGrid}>{repos && <ProjectSelecter repos={repos} />}</div>

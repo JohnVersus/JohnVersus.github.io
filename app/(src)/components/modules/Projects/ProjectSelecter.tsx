@@ -37,7 +37,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
       const allLanguages = await Promise.all(
         repos.map(async (project) => {
           const myHeaders = new Headers();
-          myHeaders.append('Authorization', 'Bearer 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');
+          myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`);
           var requestOptions = {
             method: 'GET',
             headers: myHeaders,
@@ -115,7 +115,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
         })}
       </form>
       <div className={styles.grid}>
-        {repos &&
+        {repos.length &&
           repos.map((repo: Project, i) => {
             return (
               <ProjectCard

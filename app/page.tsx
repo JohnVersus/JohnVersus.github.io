@@ -9,7 +9,7 @@ const Home = (): Promise<JSX.Element> | JSX.Element => {
       </div>
       <div className={styles.scrollChild}>
         {
-          // @ts-ignore
+          // to be fixed by using `use` in project conponent
           <Projects />
         }
       </div>

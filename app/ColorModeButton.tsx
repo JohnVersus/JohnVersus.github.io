@@ -24,18 +24,18 @@ const ColorModeButton = () => {
       default:
         break;
     }
-    if (document.documentElement.className === 'dark') {
-      setThemeIcon('🌞');
-    } else {
-      setThemeIcon('🌚');
-    }
+    // if (document.documentElement.className === 'dark') {
+    //   setThemeIcon('🌞');
+    // } else {
+    //   setThemeIcon('🌚');
+    // }
   };
 
   const checkTheme = () => {
     document.documentElement.className === ''
       ? window.matchMedia('(prefers-color-scheme: light)').matches
-        ? (document.documentElement.className = 'dark')
-        : (document.documentElement.className = 'light')
+        ? (document.documentElement.className = 'light')
+        : (document.documentElement.className = 'dark')
       : document.documentElement.className === 'dark'
       ? (document.documentElement.className = 'light')
       : (document.documentElement.className = 'dark');

@@ -9,6 +9,8 @@
   border-color: var(--light);
   background-color: var(--dark);
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  /* border: 5px solid var(--shadow); */
+  box-shadow: inset -5px -5px 10px 0px var(--shadow), inset 5px 5px 10px 0px var(--radiance);
 }
 
 .card div p {

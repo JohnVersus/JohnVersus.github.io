@@ -1,8 +1,8 @@
+'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './ProjectCard.module.css';
-import ProjectSelecter from './ProjectSelecter';
-import type { Project, IProjectCard } from './types';
+import type { Project, IProjectCard } from '../../types';
 import axios from 'axios';
 import { clientApiPost } from 'utils/apiPost';
 

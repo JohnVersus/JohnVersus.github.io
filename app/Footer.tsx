@@ -4,15 +4,11 @@ import styles from './(StyledComponents)/Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      Powered by Next 13, GitHub &&nbsp;<a href="https://github.com/JohnVersus">John</a>
+      Powered by Next 13, GitHub &&nbsp;
+      <a target={'_blank'} href="https://github.com/JohnVersus" rel="noreferrer">
+        John
+      </a>
     </footer>
-  );
-  return (
-    <FooterStyled>
-      <>
-        Powered by Next 13, GitHub &&nbsp;<a href="https://github.com/JohnVersus">John</a>
-      </>
-    </FooterStyled>
   );
 };
 

@@ -12,34 +12,36 @@ body {
 
 :root.light {
   --primary: #00916e;
-  --secondary: #f5d547;
+  --secondary: #03a8a0;
   --dark: #fffcff;
-  --light: #2b2d42;
+  --light: #1c1c1c;
   --gray: #f3eff5;
   --shadow: #00000020;
+  --radiance: #fffefe60;
   background-color: var(--dark);
   color: var(--light);
 
-  --c1: #fdfdbd;
+  --c1: #abcdef;
   --c2: #c8ffd4;
   --c3: #b8e8fc;
-  --c4: #b0f3eb;
+  --c4: #a1b2c3;
 }
 
 :root.dark {
-  --primary: #f5d547;
+  --primary: #03a8a0;
   --secondary: #00916e;
-  --dark: #2b2d42;
+  --dark: #1c1c1c;
   --light: #fffcff;
   --gray: #f3eff5;
-  --shadow: #00000040;
+  --shadow: #00000060;
+  --radiance: #ffffff20;
   background-color: var(--dark);
   color: var(--light);
 
-  --c1: #0f3460;
+  --c1: #123456;
   --c2: #2c3639;
   --c3: #4c3575;
-  --c4: #f5deb3;
+  --c4: #314256;
 }
 
 ::selection {
@@ -59,3 +61,5 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Global Color Variants */

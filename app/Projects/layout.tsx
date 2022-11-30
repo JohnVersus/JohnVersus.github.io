@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { clientApiPost } from 'utils/apiPost';
 import styles from './Projects.module.css';
-import ProjectSelecter from './ProjectSelecter';
+import ProjectSelecter from './ProjectSelecter/layout';
 import type { Project } from './types';
 
 const options = {

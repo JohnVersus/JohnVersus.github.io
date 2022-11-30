@@ -14,7 +14,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: var(--secondary);
   text-decoration: none;
 }
 
@@ -32,27 +32,12 @@
 
 .title,
 .description {
+  margin-bottom: 0;
   text-align: center;
 }
 
 .description {
   font-size: 1.5rem;
-}
-
-.grid {
-  display: grid;
-  height: 60vh;
-  width: 60vw;
-  /* grid-template-columns: repeat(auto-fit, minamx(25vw, 2fr)); */
-  margin: 0 auto;
-  justify-items: center;
-  justify-content: center;
-  grid-auto-flow: row;
-  gap: 1rem;
-  background-color: var(--c4);
-  padding: 1rem;
-  border-radius: 1rem;
-  overflow: auto;
 }
 
 .filterGrid {
@@ -66,7 +51,7 @@
   height: 8vh;
   width: 60vw;
   gap: 1rem;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
   margin-bottom: 0.4rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -83,36 +68,12 @@
   user-select: none;
 }
 
-.filterGridItem input[type='checkbox'] ~ span {
-  padding: 0.5rem;
-  background-color: var(--dark);
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.filterGridItem input[type='checkbox'] {
-  display: none;
-}
-.filterGridItem input[type='checkbox']:checked ~ span {
-  width: auto;
-  height: auto;
-  background-color: var(--secondary);
-}
-
 @media (max-width: 800px) {
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
-    width: 95vw;
-  }
   .filterGrid form {
     width: 95vw;
   }
 }
 @media (min-width: 800px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 95vw;
-  }
   .filterGrid form {
     width: 95vw;
     justify-content: center;
@@ -120,10 +81,6 @@
 }
 
 @media (min-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 75vw;
-  }
   .filterGrid form {
     width: 75vw;
     justify-content: center;
@@ -131,10 +88,6 @@
 }
 
 @media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 60vw;
-  }
   .filterGrid form {
     width: 60vw;
     justify-content: center;

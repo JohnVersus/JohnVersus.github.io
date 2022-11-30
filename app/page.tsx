@@ -1,6 +1,6 @@
-import { About, Projects } from 'components/modules';
 import styles from '../app/(StyledComponents)/Home.module.css';
-
+import About from './About/layout';
+import Projects from './Projects/layout';
 const Home = (): Promise<JSX.Element> | JSX.Element => {
   return (
     <div className={styles.scrollContainer}>

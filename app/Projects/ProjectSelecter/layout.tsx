@@ -1,9 +1,9 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { clientApiPost } from 'utils/apiPost';
-import ProjectCard from './ProjectCard';
-import styles from './Projects.module.css';
-import type { Project } from './types';
+import ProjectCard from './ProjectCard/layout';
+import styles from './ProjectSelecter.module.css';
+import type { Project } from '../types';
 
 const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
   const [languages, setLanguages] = useState<Array<string>>([]);
@@ -131,21 +131,23 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
           );
         })}
       </form>
-      <div className={styles.grid}>
-        {repos.length > 0 &&
-          repos.map((repo: Project, i) => {
-            return (
-              <ProjectCard
-                key={i}
-                name={repo.name}
-                description={repo.description}
-                languages={repo.languages_url}
-                repoUrl={repo.html_url}
-                filter={languageFilter}
-              />
-            );
-          })}
-      </div>
+      <section className={styles.projects}>
+        <div className={styles.grid}>
+          {repos.length > 0 &&
+            repos.map((repo: Project, i) => {
+              return (
+                <ProjectCard
+                  key={i}
+                  name={repo.name}
+                  description={repo.description}
+                  languages={repo.languages_url}
+                  repoUrl={repo.html_url}
+                  filter={languageFilter}
+                />
+              );
+            })}
+        </div>
+      </section>
     </div>
   );
 };

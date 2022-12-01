@@ -45,8 +45,8 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
         language && !uniqueLanguages.includes(language) && uniqueLanguages.push(language);
       }
 
-      setLanguages(uniqueLanguages);
-      setLanguageFilter(uniqueLanguages);
+      languages.length === 0 && setLanguages(uniqueLanguages);
+      languageFilter.length === 0 && setLanguageFilter(uniqueLanguages);
     }
 
     if (repos.length) {

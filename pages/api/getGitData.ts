@@ -3,6 +3,9 @@ import axios from 'axios';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { url } = req.body;
+  if (!url) {
+    throw new Error('Missing URL!!');
+  }
   try {
     const myHeaders = new Headers();
     myHeaders.append('Authorization', `Bearer ${process.env.GIT_TOKEN}`);

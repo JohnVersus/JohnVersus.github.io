@@ -45,8 +45,8 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
         language && !uniqueLanguages.includes(language) && uniqueLanguages.push(language);
       }
 
-      languages.length === 0 && setLanguages(uniqueLanguages);
-      languageFilter.length === 0 && setLanguageFilter(uniqueLanguages);
+      setLanguages(uniqueLanguages);
+      setLanguageFilter(uniqueLanguages);
     }
 
     if (repos.length) {
@@ -61,21 +61,24 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
           return resp;
         }),
       );
-      const mainLanguages = allLanguages.map((e) => {
+      const mainLanguages: Array<string> = [];
+      allLanguages.map((e) => {
         const languageArray = Object.keys(e);
-        if (languageArray.length) {
-          if (languageArray[0] === 'HTML' || 'CSS') {
-            return languageArray[1] ? languageArray[1] : languageArray[0];
-          }
-          return languageArray[0];
-        }
+        // if (languageArray.length) {
+        //   if (languageArray[0] === 'HTML' || 'CSS') {
+        //     return languageArray[1] ? languageArray[1] : languageArray[0];
+        //   }
+        //   return languageArray[0];
+        // }
+        languageArray.forEach((e) => {
+          mainLanguages.push(e);
+        });
       });
       const filteredLanguages = mainLanguages.filter((e) => {
         if (e !== undefined) {
           return e;
         }
       });
-
       let uniqueLanguages: Array<string> = [];
       for (const language of filteredLanguages) {
         language && !uniqueLanguages.includes(language) && uniqueLanguages.push(language);

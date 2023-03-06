@@ -73,6 +73,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         twitterImage,
       },
     };
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
     res.status(200).json({ metadata });
   } catch (error) {
     if (error instanceof Error) {

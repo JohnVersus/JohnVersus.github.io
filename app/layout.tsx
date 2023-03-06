@@ -1,5 +1,5 @@
-import ColorModeButton from './ColorModeButton';
-import Footer from './Footer';
+import ColorModeButton from './ColorModeButton/layout';
+import Footer from './Footer/layout';
 
 import './globals.css';
 export default function RootLayout({ children }: { children: React.ReactNode }) {

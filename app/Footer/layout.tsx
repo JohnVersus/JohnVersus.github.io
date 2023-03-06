@@ -1,5 +1,5 @@
-import { FooterStyled } from './(StyledComponents)/Footer';
-import styles from './(StyledComponents)/Footer.module.css';
+import { FooterStyled } from '../(StyledComponents)/Footer';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (

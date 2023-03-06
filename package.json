@@ -10,10 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@arrow-js/core": "^1.0.0-alpha.2",
     "axios": "^1.2.0",
     "jsdom": "^20.0.3",
-    "next": "^13.0.4",
+    "next": "^13.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -23,7 +22,7 @@
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "eslint": "8.25.0",
-    "eslint-config-next": "^13.0.4",
+    "eslint-config-next": "^13.2.3",
     "typescript": "4.8.4"
   }
 }

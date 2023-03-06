@@ -1,14 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ColorModeButtonStyled } from './(StyledComponents)/ColorModeButton';
-import styles from './(StyledComponents)/ColorModeButton.module.css';
+import { ColorModeButtonStyled } from '../(StyledComponents)/ColorModeButton';
+import styles from './ColorModeButton.module.css';
 
 const ColorModeButton = () => {
   const [themeIcon, setThemeIcon] = useState<string>();
 
   useEffect(() => {
     // checkThemeIcon(document.documentElement.className);
-    checkTheme();
+    setTheme('dark');
   }, []);
 
   const checkThemeIcon = (theme: string) => {
@@ -29,6 +29,11 @@ const ColorModeButton = () => {
     // } else {
     //   setThemeIcon('🌚');
     // }
+  };
+
+  const setTheme = (mode: 'dark' | 'light') => {
+    document.documentElement.className = mode;
+    checkThemeIcon(mode);
   };
 
   const checkTheme = () => {

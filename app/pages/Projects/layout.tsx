@@ -12,36 +12,38 @@ const getRepos = async (): Promise<Array<Project>> => {
   const response = await clientApiPost('getGitData', options);
   return response;
 };
-const Projects = ({ href }: { href: string }) => {
-  // const repoData = await getRepos();
-  const [repoData, setRepoData] = useState<Array<Project>>();
+const Projects = () =>
+  // { href }: { href: string }
+  {
+    // const repoData = await getRepos();
+    const [repoData, setRepoData] = useState<Array<Project>>();
 
-  let repos = [];
-  useEffect(() => {
-    const init = async () => {
-      const repoData = await getRepos();
-      setRepoData(repoData);
-    };
-    init();
-  }, []);
-  if (repoData) {
-    for (const repo of repoData) {
-      if (repo.fork === false) {
-        repos.push(repo);
+    let repos = [];
+    useEffect(() => {
+      const init = async () => {
+        const repoData = await getRepos();
+        setRepoData(repoData);
+      };
+      init();
+    }, []);
+    if (repoData) {
+      for (const repo of repoData) {
+        if (repo.fork === false) {
+          repos.push(repo);
+        }
       }
     }
-  }
-  return (
-    <div className={styles.container} id={href}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          <a>My Git Projects</a>
-          <p className={styles.description}>Top {repos.length}</p>
-        </h1>
-        <div className={styles.filterGrid}>{repos && <ProjectSelecter repos={repos} />}</div>
-      </main>
-    </div>
-  );
-};
+    return (
+      <div className={styles.container} id={'projects'}>
+        <main className={styles.main}>
+          <h1 className={styles.title}>
+            <a>My Git Projects</a>
+            <p className={styles.description}>Top {repos.length}</p>
+          </h1>
+          <div className={styles.filterGrid}>{repos && <ProjectSelecter repos={repos} />}</div>
+        </main>
+      </div>
+    );
+  };
 
 export default Projects;

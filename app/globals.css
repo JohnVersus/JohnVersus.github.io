@@ -62,4 +62,28 @@ a:hover {
   cursor: pointer;
 }
 
+:focus-visible {
+  outline: 0.2rem solid var(--primary);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 0.2rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: var(--primary) var(--radiance);
+  }
+}
 /* Global Color Variants */

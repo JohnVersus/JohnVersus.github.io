@@ -1,0 +1,22 @@
+.navbar {
+  position: fixed;
+  top: 30%;
+  right: 3vw;
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.navbar div:hover {
+  text-shadow: 0.1rem 0.1rem 1rem var(--light);
+}
+
+.navbar div:active {
+  text-shadow: 0.1rem 0.1rem 1rem var(--light);
+  transform: scale(1.1);
+}

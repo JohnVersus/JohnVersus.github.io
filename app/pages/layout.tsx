@@ -2,7 +2,7 @@ import styles from './Pages.module.css';
 import About from '../pages/About/layout';
 import Projects from '../pages/Projects/layout';
 
-const PagesArray = [<About key={'about'} />, <Projects key={'projects'} />];
+const PagesArray = [<About key={'about'} href="about" />, <Projects key={'projects'} href="projects" />];
 
 const Pages = () => {
   return (

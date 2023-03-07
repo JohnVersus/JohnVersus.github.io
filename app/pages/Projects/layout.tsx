@@ -12,7 +12,7 @@ const getRepos = async (): Promise<Array<Project>> => {
   const response = await clientApiPost('getGitData', options);
   return response;
 };
-const Projects = () => {
+const Projects = ({ href }: { href: string }) => {
   // const repoData = await getRepos();
   const [repoData, setRepoData] = useState<Array<Project>>();
 
@@ -32,7 +32,7 @@ const Projects = () => {
     }
   }
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={href}>
       <main className={styles.main}>
         <h1 className={styles.title}>
           <a>My Git Projects</a>

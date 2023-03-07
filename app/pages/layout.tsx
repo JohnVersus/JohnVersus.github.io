@@ -1,18 +1,20 @@
 import styles from './Pages.module.css';
+import About from '../pages/About/layout';
+import Projects from '../pages/Projects/layout';
 
-const Pages = ({ pages }: { pages: JSX.Element[] }) => {
+const PagesArray = [<About key={'about'} />, <Projects key={'projects'} />];
+
+const Pages = () => {
   return (
-    <>
-      <div className={styles.scrollContainer}>
-        {pages.map((page, i) => {
-          return (
-            <div key={i} className={styles.scrollChild}>
-              {page}
-            </div>
-          );
-        })}
-      </div>
-    </>
+    <div className={styles.scrollContainer}>
+      {PagesArray?.map((page, i) => {
+        return (
+          <div key={i} className={styles.scrollChild}>
+            {page}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

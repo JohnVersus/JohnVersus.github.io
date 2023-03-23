@@ -9,7 +9,13 @@ const Navbar = () => {
         <a href="#about"> ⏺ </a>
       </div>
       <div>
+        <a href="#tools"> ⏺ </a>
+      </div>
+      <div>
         <a href="#projects"> ⏺ </a>
+      </div>
+      <div>
+        <a href="#contact"> ⏺ </a>
       </div>
     </div>
   );

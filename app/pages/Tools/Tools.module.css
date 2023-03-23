@@ -1,0 +1,114 @@
+/* @import url(./globals.css); */
+
+.container {
+  padding: 0 0;
+}
+
+.main {
+  height: 95vh;
+  padding: 0rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.appBox {
+  width: 90vw;
+  height: 70vh;
+  margin-top: 1rem;
+  /* background-color: var(--c2); */
+  padding: 1rem;
+  border-radius: 1rem;
+  /* box-shadow: inset -5px -5px 10px 0px var(--shadow), inset 5px 5px 10px 0px var(--radiance); */
+  backdrop-filter: blur(4px);
+  overflow: scroll;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 2vw 2vw 2vw 2vw;
+  border: 1rem solid var(--dark);
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.backgroundImage img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.appDescription {
+  width: 50%;
+  height: 60vh;
+  padding: 2vw 8vw 2vw 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  align-content: center;
+  flex-direction: column;
+  gap: 1vh;
+  /* background-color: var(--shadow); */
+}
+
+.appDescription div {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+.appDescription div a {
+  background-color: var(--dark);
+  text-decoration: underline;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+  /* text-shadow: 0.05rem 0.05rem 1rem var(--light); */
+}
+.appDescription big {
+  color: var(--secondary);
+}
+.appDescription p {
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .appDescription {
+    width: 100%;
+    padding: 2vw 4vw 2vw 4vw;
+  }
+}

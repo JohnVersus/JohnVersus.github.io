@@ -1,7 +1,7 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { clientApiPost } from 'utils/apiPost';
-import ProjectCard from './ProjectCard/layout';
+import ProjectCard from './ProjectCard/ProjectCard';
 import styles from './ProjectSelecter.module.css';
 import type { Project } from '../types';
 

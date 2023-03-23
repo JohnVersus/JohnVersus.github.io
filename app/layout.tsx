@@ -1,6 +1,6 @@
-import ColorModeButton from './ColorModeButton/layout';
-import Footer from './Footer/layout';
-import Navbar from './Navbar/layout';
+import ColorModeButton from './ColorModeButton/ColorModeButton';
+import Footer from './Footer/Footer';
+import Navbar from './Navbar/Navbar';
 
 import './globals.css';
 export default function RootLayout({ children }: { children: React.ReactNode }) {

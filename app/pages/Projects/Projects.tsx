@@ -36,9 +36,10 @@ const Projects = ({ href }: { href: string }) => {
       <main className={styles.main}>
         <h1 className={styles.title}>
           <a>My Git Projects</a>
-          <p className={styles.description}>Top {repos.length}</p>
+          {/* <p className={styles.description}>Top {repos.length}</p> */}
         </h1>
-        <div className={styles.filterGrid}>{repos && <ProjectSelecter repos={repos} />}</div>
+
+        <div className={styles.filterGrid}>{repos.length && <ProjectSelecter repos={repos} />}</div>
       </main>
     </div>
   );

@@ -16,11 +16,11 @@
 
 .title a {
   color: var(--secondary);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .title a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .title {
@@ -34,44 +34,68 @@
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-.errortext {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-  color: darkred;
-}
-
-.code {
-  background: var(--shadow);
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-    monospace;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
-  background-color: var(--c4);
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: inset -5px -5px 10px 0px var(--shadow), inset 5px 5px 10px 0px var(--radiance);
-  backdrop-filter: blur(4px);
+  width: 90%;
+  max-width: 500px;
 }
 
-.grid a img {
-  filter: drop-shadow(-5px -5px 2px var(--shadow)) invert(5%);
+.form label {
+  color: var(--secondary);
+  text-align: left;
+  width: 90%;
 }
 
-.grid a img:hover {
-  transform: scale(1.2);
-  transition: 250ms ease-out;
-  filter: drop-shadow(-10px -10px 2px var(--shadow)) invert(5%);
+.form input,
+.form textarea {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+}
+
+.form textarea {
+  resize: none;
+}
+
+.form button {
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary);
+  color: var(--dark);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 90%;
+}
+
+.form button:hover {
+  background-color: var(--primary);
+}
+
+.contactInfo {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contactInfo ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contactInfo ul li a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.contactInfo ul li a:hover {
+  text-decoration: none;
 }

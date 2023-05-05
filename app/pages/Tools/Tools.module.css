@@ -35,13 +35,14 @@
 }
 
 .appBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
   width: 90vw;
   height: 70vh;
   margin-top: 1rem;
-  /* background-color: var(--c2); */
   padding: 1rem;
   border-radius: 1rem;
-  /* box-shadow: inset -5px -5px 10px 0px var(--shadow), inset 5px 5px 10px 0px var(--radiance); */
   backdrop-filter: blur(4px);
   overflow: scroll;
 }
@@ -55,6 +56,7 @@
   flex-wrap: wrap;
   padding: 2vw 2vw 2vw 2vw;
   border: 1rem solid var(--dark);
+  /* padding-bottom: calc(60vh * 0.6); */
 }
 
 .backgroundImage {
@@ -68,15 +70,20 @@
 
 .backgroundImage img {
   width: 100%;
-  height: 100%;
+  height: auto;
   opacity: 0.8;
   object-fit: cover;
   filter: grayscale(100%);
 }
 
+.app:hover .backgroundImage img {
+  filter: none;
+}
+
 .appDescription {
-  width: 50%;
+  width: 100%;
   height: 60vh;
+  text-align: center;
   padding: 2vw 8vw 2vw 8vw;
   display: flex;
   justify-content: center;
@@ -101,6 +108,7 @@
 }
 .appDescription big {
   color: var(--secondary);
+  background-color: var(--dark);
 }
 .appDescription p {
   color: var(--secondary);

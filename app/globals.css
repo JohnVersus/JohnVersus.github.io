@@ -81,6 +81,10 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 @supports (scrollbar-color: red blue) {
   * {
     scrollbar-color: var(--primary) var(--radiance);

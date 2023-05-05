@@ -8,6 +8,20 @@ import { clientApiPost } from 'utils/apiPost';
 
 const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {
   const [data, setData] = useState<Array<string>>([]);
+  const [isActive, setIsActive] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleImageClick = () => {
+    if (isActive) {
+      setIsExiting(true);
+      setTimeout(() => {
+        setIsExiting(false);
+        setIsActive(false);
+      }, 300);
+    } else {
+      setIsActive(true);
+    }
+  };
   const [metadata, setMetadata] = useState<{
     title: string;
     description: string;
@@ -40,36 +54,44 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
     });
   }, [languages]);
 
-  useEffect(() => {
-    let ConvertStringToHTML = function (str: string) {
-      let parser = new DOMParser();
-      let doc = parser.parseFromString(str, 'text/html');
-      return doc.head;
-    };
+  // useEffect(() => {
+  //   let ConvertStringToHTML = function (str: string) {
+  //     let parser = new DOMParser();
+  //     let doc = parser.parseFromString(str, 'text/html');
+  //     return doc.head;
+  //   };
 
-    const getUrl = async () => {
-      const options = {
-        url: repoUrl,
-      };
-      const result = await axios.post('api/getProjectMetadata', options, {
-        // headers: {
-        //   'content-type': 'application/json',
-        // },
-      });
-      const { title, description, ogData, twitterData } = result.data.metadata;
-      setMetadata({ title, description, ogData, twitterData });
-    };
-    repoUrl && getUrl();
-  }, [repoUrl]);
+  //   const getUrl = async () => {
+  //     const options = {
+  //       url: repoUrl,
+  //     };
+  //     const result = await axios.post('api/getProjectMetadata', options, {
+  //       // headers: {
+  //       //   'content-type': 'application/json',
+  //       // },
+  //     });
+  //     const { title, description, ogData, twitterData } = result.data.metadata;
+  //     setMetadata({ title, description, ogData, twitterData });
+  //   };
+  //   repoUrl && getUrl();
+  // }, [repoUrl]);
 
   if (Object.keys(data).filter((element) => filter.includes(element)).length) {
     return (
       <div className={styles.card}>
+        {/* <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'auto'} alt={''}></img> */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'auto'} alt={''}></img>
+        <img
+          src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${repoUrl}`}
+          width={'100%'}
+          height={'100%'}
+          alt={''}
+          className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
+          onClick={handleImageClick}
+        ></img>
         <div>
-          <p> {name}</p>
-          <p>{Object.keys(data).toString()}</p>
+          {/* <p> {name}</p> */}
+          {/* <p>{Object.keys(data).toString()}</p> */}
         </div>
       </div>
     );

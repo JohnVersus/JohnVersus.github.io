@@ -48,7 +48,7 @@ const About = ({ href }: { href: string }) => {
           </a>
         </div>
 
-        <p className={styles.errortext}>🛠Construction in Progress🏗</p>
+        {/* <p className={styles.errortext}>🛠Construction in Progress🏗</p> */}
       </main>
     </div>
   );

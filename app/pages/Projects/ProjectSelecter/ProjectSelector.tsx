@@ -35,6 +35,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
 
   const getLanguages = async (repos: Array<Project>) => {
     console.time('Start');
+    console.log(repos);
     if (repos.length) {
       const languageArray: Array<string> = [];
       for (const repo of repos) {

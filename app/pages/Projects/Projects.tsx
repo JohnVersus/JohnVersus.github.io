@@ -35,7 +35,7 @@ const Projects = ({ href }: { href: string }) => {
     <div className={styles.container} id={href}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>My Git Projects</a>
+          <a href="/#projects">My Git Projects</a>
           {/* <p className={styles.description}>Top {repos.length}</p> */}
         </h1>
 

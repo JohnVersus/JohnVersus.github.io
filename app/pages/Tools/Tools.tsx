@@ -12,7 +12,7 @@ const Tools = ({ href }: { href: string }) => {
           <div className={styles.app} title="Github Social Image Generator">
             <div className={styles.backgroundImage}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://i.ibb.co/T45wDvQ/image.png" alt="Github social Image Generator" />
+              <img src="https://i.ibb.co/T45wDvQ/image.png" alt="Github social Image Generator" width={'100%'} />
             </div>
             <div className={styles.appDescription}>
               <big>
@@ -31,7 +31,7 @@ const Tools = ({ href }: { href: string }) => {
           <div className={styles.app} title="Crypto Investment Tracker">
             <div className={styles.backgroundImage}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://i.ibb.co/6mPRYjf/image.png" alt="Crypto Investment Tracker" />
+              <img src="https://i.ibb.co/6mPRYjf/image.png" alt="Crypto Investment Tracker" width={'100%'} />
             </div>
             <div className={styles.appDescription}>
               <big>

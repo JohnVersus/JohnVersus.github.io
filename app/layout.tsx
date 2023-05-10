@@ -5,7 +5,7 @@ import Navbar from './Navbar/Navbar';
 import './globals.css';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en">
       <body>
         <ColorModeButton />
         {children}

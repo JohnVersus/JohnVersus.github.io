@@ -15,6 +15,9 @@
 .card img {
   object-fit: fill;
   cursor: pointer;
+  aspect-ratio: 1920 / 960;
+  /* padding: 0.4rem; */
+  border-radius: 0.6rem;
 }
 .card div p {
   max-width: 100%;

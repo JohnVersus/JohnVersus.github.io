@@ -6,7 +6,7 @@ const About = ({ href }: { href: string }) => {
     <div className={styles.container} id={href}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>Hi 👋, I’m John!!</a>
+          <a href="/#about">Hi 👋, I’m John!!</a>
         </h1>
 
         <p className={styles.description}>
@@ -17,7 +17,7 @@ const About = ({ href }: { href: string }) => {
           🚀
         </p>
 
-        <h3>Languages and Tools I Use</h3>
+        <h2>Languages and Tools I Use</h2>
         <div className={styles.grid}>
           <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
             <Image src="/codeImages/typescript.svg" alt="typescript" width="50" height="50" />

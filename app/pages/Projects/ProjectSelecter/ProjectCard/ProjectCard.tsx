@@ -85,7 +85,8 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
           src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${repoUrl}`}
           width={'100%'}
           height={'100%'}
-          alt={''}
+          max-widht={'90vw'}
+          alt={`${repoUrl}`}
           className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
           onClick={handleImageClick}
         ></img>

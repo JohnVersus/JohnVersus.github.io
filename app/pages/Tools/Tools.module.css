@@ -36,7 +36,7 @@
 
 .appBox {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   width: 90vw;
   /* height: 70vh; */
@@ -82,7 +82,7 @@
 
 .appDescription {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   text-align: center;
   padding: 2vw 8vw 2vw 8vw;
   display: flex;
@@ -91,7 +91,6 @@
   align-content: center;
   flex-direction: column;
   gap: 1vh;
-  /* background-color: var(--shadow); */
 }
 
 .appDescription div {
@@ -108,7 +107,9 @@
 }
 .appDescription big {
   color: var(--secondary);
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
+  /* text-shadow: var(--gray) 1px 1px 1px;
+  letter-spacing: 2px; */
 }
 .appDescription p {
   color: var(--secondary);
@@ -116,7 +117,11 @@
 
 @media (max-width: 768px) {
   .appDescription {
+    height: 25vh;
     width: 100%;
     padding: 2vw 4vw 2vw 4vw;
+  }
+  .appBox {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

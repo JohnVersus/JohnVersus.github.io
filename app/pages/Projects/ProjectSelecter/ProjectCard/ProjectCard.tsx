@@ -89,6 +89,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
           alt={`${repoUrl}`}
           className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
           onClick={handleImageClick}
+          loading="lazy"
         ></img>
         <div>
           {/* <p> {name}</p> */}

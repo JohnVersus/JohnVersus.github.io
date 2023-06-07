@@ -5,6 +5,7 @@ import styles from './ProjectCard.module.css';
 import type { Project, IProjectCard } from '../../types';
 import axios from 'axios';
 import { clientApiPost } from 'utils/apiPost';
+import GitImage from './GitImage';
 
 const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {
   const [data, setData] = useState<Array<string>>([]);
@@ -79,9 +80,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
   if (Object.keys(data).filter((element) => filter.includes(element)).length) {
     return (
       <div className={styles.card}>
-        {/* <img src={`${metadata?.ogData.ogImage}`} width={'100%'} height={'auto'} alt={''}></img> */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <GitImage
           src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${repoUrl}`}
           width={'100%'}
           height={'100%'}
@@ -90,7 +89,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
           className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
           onClick={handleImageClick}
           loading="lazy"
-        ></img>
+        ></GitImage>
         <div>
           {/* <p> {name}</p> */}
           {/* <p>{Object.keys(data).toString()}</p> */}
@@ -98,6 +97,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
       </div>
     );
   }
+
   return null;
 };
 

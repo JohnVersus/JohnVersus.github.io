@@ -7,18 +7,28 @@ const sections = ['#about', '#tools', '#projects', '#contact'];
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
+  // hash change event
   useEffect(() => {
     const onHashChange = () => {
       setActiveSection(window.location.hash);
     };
-
     window.addEventListener('hashchange', onHashChange);
 
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
+
+  // scroll change event
+  useEffect(() => {
     const onScroll = () => {
+      const buffer = window.innerHeight / 2; // Create a buffer zone in the middle of the viewport
+
       for (const hash of sections) {
         const sectionElement = document.querySelector(hash);
         const rect = sectionElement?.getBoundingClientRect();
-        if (rect?.top && rect?.bottom && rect?.top <= 0 && rect?.bottom >= 0) {
+        if (rect?.top && rect?.bottom && rect?.top <= buffer && rect?.top >= -buffer) {
+          // Adjust the condition
           if (window.location.hash !== hash) {
             window.history.replaceState(null, '', hash);
             setActiveSection(hash);
@@ -27,12 +37,22 @@ const Navbar = () => {
         }
       }
     };
-    window.addEventListener('scroll', onScroll);
+    document.addEventListener('scroll', onScroll, true);
 
     return () => {
-      window.removeEventListener('hashchange', onHashChange);
-      window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('scroll', onScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      setActiveSection(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }, []);
 
   return (
@@ -41,7 +61,7 @@ const Navbar = () => {
         <a href="#about">ℹ️</a>
       </div>
       <div className={activeSection === '#tools' ? styles.activeDot : styles.dot}>
-        <a href="#tools">🧰</a>
+        <a href="#tools">💻</a>
       </div>
       <div className={activeSection === '#projects' ? styles.activeDot : styles.dot}>
         <a href="#projects">🗂️</a>

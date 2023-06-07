@@ -107,7 +107,7 @@
 }
 .appDescription big {
   color: var(--secondary);
-  /* background-color: var(--dark); */
+  background-color: var(--dark);
   /* text-shadow: var(--gray) 1px 1px 1px;
   letter-spacing: 2px; */
 }

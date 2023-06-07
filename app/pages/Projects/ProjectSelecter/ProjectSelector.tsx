@@ -34,8 +34,8 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
   };
 
   const getLanguages = async (repos: Array<Project>) => {
-    console.time('Start');
-    console.log(repos);
+    // console.time('Start');
+    // console.log(repos);
     if (repos.length) {
       const languageArray: Array<string> = [];
       for (const repo of repos) {
@@ -89,7 +89,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
       setLanguageFilter(uniqueLanguages);
     }
 
-    console.timeEnd('Start');
+    // console.timeEnd('Start');
   };
 
   useEffect(() => {

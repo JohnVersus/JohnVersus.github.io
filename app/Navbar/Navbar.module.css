@@ -4,10 +4,10 @@
   right: 3vw;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   padding: 0.5rem;
   border-radius: 1rem;
   height: auto;
+  border: 0.5px solid var(--primary);
 
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -20,6 +20,7 @@
 .navbar div {
   width: 1rem;
   height: 1rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -29,5 +30,5 @@
 }
 
 .navbar div.activeDot {
-  text-shadow: 0 0 10px var(--light);
+  text-shadow: 0 0 5px var(--light);
 }

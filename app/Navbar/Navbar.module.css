@@ -24,6 +24,10 @@
   margin-bottom: 1rem;
 }
 
+.navbar div a {
+  text-decoration: none;
+}
+
 .navbar div:hover,
 .navbar div:active {
   transform: scale(1.1);

@@ -45,7 +45,7 @@
 }
 
 .form label {
-  color: var(--secondary);
+  color: var(--light);
   text-align: left;
   width: 90%;
 }
@@ -64,18 +64,19 @@
 
 .form button {
   padding: 0.5rem 1rem;
-  background-color: var(--secondary);
-  color: var(--dark);
+  background-color: var(--dark);
+  color: var(--light);
   font-size: large;
   font-weight: bolder;
   border-radius: 5px;
+  border: 0.1rem solid var(--secondary);
   cursor: pointer;
   transition: background-color 0.2s;
   width: 90%;
 }
 
 .form button:hover {
-  background-color: var(--primary);
+  background-color: var(--secondary);
 }
 
 .contactInfo {

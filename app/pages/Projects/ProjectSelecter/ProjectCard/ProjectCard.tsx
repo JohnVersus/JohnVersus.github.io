@@ -91,8 +91,8 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
           loading="lazy"
         ></GitImage>
         <div>
-          {/* <p> {name}</p> */}
-          {/* <p>{Object.keys(data).toString()}</p> */}
+          <p className={styles.visuallyHidden}> {name}</p>
+          <p className={styles.visuallyHidden}>{description}</p>
         </div>
       </div>
     );

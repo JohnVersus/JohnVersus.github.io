@@ -94,7 +94,7 @@
 }
 
 .contactInfo ul li a {
-  color: var(--secondary);
+  color: var(--light);
   text-decoration: underline;
 }
 

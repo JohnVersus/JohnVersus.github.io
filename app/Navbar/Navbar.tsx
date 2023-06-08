@@ -57,7 +57,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={activeSection === '#about' ? styles.activeDot : styles.dot}>
+      <div className={activeSection === '#about' || activeSection === '' ? styles.activeDot : styles.dot}>
         <a href="#about">ℹ️</a>
       </div>
       <div className={activeSection === '#tools' ? styles.activeDot : styles.dot}>

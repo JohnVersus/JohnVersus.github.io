@@ -5,7 +5,7 @@ const Contact = ({ href }: { href: string }) => {
     <div className={styles.container} id={href}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>Contact</a>
+          <a href="/#contact">Contact</a>
         </h1>
         <div className={styles.contactInfo}>
           <h2>Feel free to reach out to me on:</h2>

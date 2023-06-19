@@ -18,7 +18,7 @@ body {
   --gray: #f3eff5;
   --shadow: #00000020;
   --radiance: #fffefe60;
-  background-color: var(--dark);
+  background-color: lightgrey;
   color: var(--light);
 
   --c1: #abcdef;

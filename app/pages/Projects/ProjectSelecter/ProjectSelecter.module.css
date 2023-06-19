@@ -35,10 +35,10 @@
   grid-auto-flow: row;
   gap: 1rem;
   /* background-color: var(--c4); */
-  /* padding: 1rem; */
+  padding: 1rem;
   border-radius: 1.5rem;
   overflow: auto;
-
+  position: relative;
   /* border-top: 0.2rem solid var(--primary);
   border-bottom: 0.2rem solid var(--primary); */
 }

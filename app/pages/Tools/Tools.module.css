@@ -31,10 +31,9 @@
 
 .appBox {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  width: 90vw;
-  /* height: 70vh; */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2vw;
+  width: 90%;
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -50,7 +49,7 @@
   align-content: center;
   flex-wrap: wrap;
   padding: 2vw 2vw 2vw 2vw;
-  border: 1rem solid var(--dark);
+  border: 1rem solid none;
   /* padding-bottom: calc(60vh * 0.6); */
 }
 
@@ -76,8 +75,7 @@
 }
 
 .appDescription {
-  width: 100%;
-  height: 50vh;
+  min-height: 50vh;
   text-align: center;
   padding: 2vw 8vw 2vw 8vw;
   display: flex;
@@ -112,7 +110,7 @@
 
 @media (max-width: 768px) {
   .appDescription {
-    height: 25vh;
+    min-height: 25vh;
     width: 100%;
     padding: 2vw 4vw 2vw 4vw;
   }

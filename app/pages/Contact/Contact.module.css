@@ -56,6 +56,7 @@
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--secondary);
+  color: var(--secondary);
   background-color: var(--dark);
 }
 

@@ -20,19 +20,25 @@ const apps = [
 
 const Tools = ({ href }: { href: string }) => {
   return (
-    <div className={styles.container} id={href}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+    <div className={styles.pageContainer} id={href}>
+      <main className={styles.mainContent}>
+        <h1 className={styles.pageTitle}>
           <a href="/#tools">App Billboard</a>
         </h1>
-        <div className={styles.appBox}>
+        <div className={styles.appGrid}>
           {apps.map((app, i) => (
-            <div className={styles.app} title={app.title} key={i}>
-              <div className={styles.backgroundImage}>
+            <div className={styles.appCard} title={app.title} key={i}>
+              <div className={styles.appImageContainer}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={app.imageUrl} alt={app.title} width={'100%'} loading="lazy" height={`${100 / 1.5}%`} />
+                <img
+                  className={styles.appImage}
+                  src={app.imageUrl}
+                  alt={app.title}
+                  width={'100%'}
+                  height={`${100 / 1.5}%`}
+                />
               </div>
-              <div className={styles.appDescription}>
+              <div className={styles.appDetails}>
                 <big>
                   <b> {app.title}</b>
                 </big>

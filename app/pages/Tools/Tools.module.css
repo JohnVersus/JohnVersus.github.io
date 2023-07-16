@@ -1,10 +1,10 @@
 /* @import url(./globals.css); */
 
-.container {
+.pageContainer {
   padding: 0 0;
 }
 
-.main {
+.mainContent {
   height: 95vh;
   padding: 0rem 0;
   flex: 1;
@@ -14,22 +14,22 @@
   align-items: center;
 }
 
-.title a {
+.pageTitle a {
   color: var(--secondary);
 }
 
-.title {
+.pageTitle {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
 }
 
-.title,
+.pageTitle,
 .description {
   text-align: center;
 }
 
-.appBox {
+.appGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 2vw;
@@ -41,28 +41,20 @@
   overflow: scroll;
 }
 
-.app {
-  position: relative;
+.appCard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  padding: 2vw 2vw 2vw 2vw;
+  padding: 2vw;
   border: 1rem solid none;
-  /* padding-bottom: calc(60vh * 0.6); */
 }
 
-.backgroundImage {
-  position: absolute;
-  top: 0;
-  left: 0;
+.appImageContainer {
   width: 100%;
-  /* height: 100%; */
-  z-index: -1;
+  z-index: 0;
 }
 
-.backgroundImage img {
+.appImage {
   width: 100%;
   height: auto;
   opacity: 0.8;
@@ -70,52 +62,47 @@
   filter: grayscale(100%);
 }
 
-.app:hover .backgroundImage img {
+.appCard:hover .appImage {
   filter: none;
 }
 
-.appDescription {
-  min-height: 50vh;
+.appDetails {
+  width: 100%;
   text-align: center;
-  padding: 2vw 8vw 2vw 8vw;
   display: flex;
-  justify-content: center;
-  align-items: top;
-  align-content: center;
   flex-direction: column;
+  align-items: center;
   gap: 1vh;
 }
 
-.appDescription div {
+.appDetails div {
   display: flex;
   justify-content: center;
   gap: 1vw;
 }
-.appDescription div a {
-  background-color: var(--dark);
+
+.appDetails div a {
   text-decoration: underline;
   padding: 0.5vw;
   border-radius: 0.5vw;
-  /* text-shadow: 0.05rem 0.05rem 1rem var(--light); */
 }
-.appDescription big {
+
+.appDetails big {
   color: var(--secondary);
-  background-color: var(--dark);
-  /* text-shadow: var(--gray) 1px 1px 1px;
-  letter-spacing: 2px; */
 }
-.appDescription p {
+
+.appDetails p {
   color: var(--secondary);
 }
 
 @media (max-width: 768px) {
-  .appDescription {
-    min-height: 25vh;
+  .appDetails {
     width: 100%;
     padding: 2vw 4vw 2vw 4vw;
   }
-  .appBox {
+  .appGrid {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1vw; /* Adjusting grid gap for smaller screens */
   }
 }
 

@@ -57,16 +57,19 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={activeSection === '#about' || activeSection === '' ? styles.activeDot : styles.dot}>
+      <div
+        title="Home page"
+        className={activeSection === '#about' || activeSection === '' ? styles.activeDot : styles.dot}
+      >
         <a href="#about">ℹ️</a>
       </div>
-      <div className={activeSection === '#tools' ? styles.activeDot : styles.dot}>
+      <div title="My tools" className={activeSection === '#tools' ? styles.activeDot : styles.dot}>
         <a href="#tools">💻</a>
       </div>
-      <div className={activeSection === '#projects' ? styles.activeDot : styles.dot}>
+      <div title="My projects" className={activeSection === '#projects' ? styles.activeDot : styles.dot}>
         <a href="#projects">🗂️</a>
       </div>
-      <div className={activeSection === '#contact' ? styles.activeDot : styles.dot}>
+      <div title="Contact" className={activeSection === '#contact' ? styles.activeDot : styles.dot}>
         <a href="#contact">💬</a>
       </div>
     </div>

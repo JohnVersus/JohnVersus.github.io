@@ -7,7 +7,7 @@ const GitImage = ({ src = '', maxRetries = 3, ...props }) => {
   const handleError = () => {
     console.log(`Error loading image at ${src}. Retry count: ${errorCount + 1}`);
     setErrorCount((count) => count + 1);
-    setRetrySuffix(`?retry=${errorCount + 1}`); // Change the retry suffix each time handleError runs
+    setRetrySuffix(`#${errorCount + 1}`); // Change the retry suffix each time handleError runs
   };
 
   if (errorCount > maxRetries) {

@@ -30,7 +30,14 @@ const Tools = ({ href }: { href: string }) => {
             <div className={styles.appCard} title={app.title} key={i}>
               <div className={styles.appImageContainer}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className={styles.appImage} src={app.imageUrl} alt={app.title} width={'100px'} height={'60px'} />
+                <img
+                  loading="lazy"
+                  className={styles.appImage}
+                  src={app.imageUrl}
+                  alt={app.title}
+                  width={'100px'}
+                  height={'60px'}
+                />
               </div>
               <div className={styles.appDetails}>
                 <big>

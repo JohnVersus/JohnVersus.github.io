@@ -13,6 +13,7 @@ body {
 :root.light {
   --primary: #00916e;
   --secondary: #03a8a0;
+  --tertiary: #5f26a4;
   --dark: #fffcff;
   --light: #1c1c1c;
   --gray: #f3eff5;
@@ -30,6 +31,7 @@ body {
 :root.dark {
   --primary: #03a8a0;
   --secondary: #00916e;
+  --tertiary: #ffd602;
   --dark: #1c1c1c;
   --light: #fffcff;
   --gray: #f3eff5;

@@ -45,7 +45,7 @@
 }
 
 .form label {
-  color: var(--secondary);
+  color: var(--light);
   text-align: left;
   width: 90%;
   font-size: larger;
@@ -57,9 +57,10 @@
   width: 90%;
   padding: 0.5rem;
   border-radius: 5px;
-  border: 1px solid var(--secondary);
+  border: 0.1rem solid var(--secondary);
   color: var(--secondary);
   background-color: var(--dark);
+  font-size: large;
 }
 
 .form textarea {

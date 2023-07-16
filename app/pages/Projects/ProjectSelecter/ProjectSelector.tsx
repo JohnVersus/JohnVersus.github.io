@@ -64,16 +64,18 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
       );
       const mainLanguages: Array<string> = [];
       allLanguages.map((e) => {
-        const languageArray = Object.keys(e);
-        // if (languageArray.length) {
-        //   if (languageArray[0] === 'HTML' || 'CSS') {
-        //     return languageArray[1] ? languageArray[1] : languageArray[0];
-        //   }
-        //   return languageArray[0];
-        // }
-        languageArray.forEach((e) => {
-          mainLanguages.push(e);
-        });
+        if (e) {
+          const languageArray = Object.keys(e);
+          // if (languageArray.length) {
+          //   if (languageArray[0] === 'HTML' || 'CSS') {
+          //     return languageArray[1] ? languageArray[1] : languageArray[0];
+          //   }
+          //   return languageArray[0];
+          // }
+          languageArray.forEach((e) => {
+            mainLanguages.push(e);
+          });
+        }
       });
       const filteredLanguages = mainLanguages.filter((e) => {
         if (e !== undefined) {

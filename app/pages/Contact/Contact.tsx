@@ -41,13 +41,13 @@ const Contact = ({ href }: { href: string }) => {
           <input type="text" id="name" name="name" required /> */}
 
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" required placeholder="Enter email" />
 
             <label htmlFor="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required />
+            <input type="text" id="subject" name="subject" required placeholder="Enter subject" />
 
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows={5} required />
+            <textarea id="message" name="message" rows={5} required placeholder="Enter message" />
 
             <button type="submit">Submit</button>
           </form>

@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     loader: 'akamai',
     path: '/',
-    domains: ['webapi.johnversus.dev'],
+    domains: ['webapi.johnversus.dev', 'i.ibb.co'],
     // formats: ['image/avif', 'image/webp', 'image/jpg'],
     // remotePatterns: [
     //   {

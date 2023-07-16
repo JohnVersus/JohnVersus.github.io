@@ -1,5 +1,5 @@
 import styles from './Tools.module.css';
-
+import Image from 'next/image';
 const apps = [
   {
     title: 'Github Social Image Generator',
@@ -34,8 +34,10 @@ const Tools = ({ href }: { href: string }) => {
                   className={styles.appImage}
                   src={app.imageUrl}
                   alt={app.title}
-                  width={'100%'}
-                  height={`${100 / 1.5}%`}
+                  // width={'100%'}
+                  // height={`${100 / 1.5}%`}
+                  width={100}
+                  height={100 / 1.5}
                 />
               </div>
               <div className={styles.appDetails}>

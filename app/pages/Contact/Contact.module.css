@@ -48,8 +48,6 @@
   color: var(--light);
   text-align: left;
   width: 90%;
-  font-size: larger;
-  font-weight: bolder;
 }
 
 .form input,
@@ -60,7 +58,6 @@
   border: 0.1rem solid var(--secondary);
   color: var(--secondary);
   background-color: var(--dark);
-  font-size: large;
 }
 
 .form textarea {

@@ -16,6 +16,13 @@ const apps = [
     description:
       'Crypto investment tracker is a simple tool to replace your classic excel sheet. It helps to track all your crypto investments in one place.',
   },
+  {
+    title: 'Nimble UI Kit',
+    imageUrl: 'https://i.ibb.co/Nx7GZsp/thumbnail.webp',
+    githubUrl: 'https://github.com/JohnVersus/nimbleuikit',
+    websiteUrl: 'https://nimbleuikit-website.vercel.app/',
+    description: 'Nimble UI Kit is a light weight UI kit to create stunning UI systems effortlessly!',
+  },
 ];
 
 const Tools = ({ href }: { href: string }) => {

@@ -31,7 +31,7 @@
 
 .appGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Adjusting number of columns */
   grid-gap: 2vw;
   width: 90%;
   margin-top: 1rem;
@@ -51,19 +51,21 @@
 
 .appImageContainer {
   width: 100%;
+  overflow: hidden; /* Prevent images from spilling out of the container */
   z-index: 0;
 }
 
 .appImage {
   width: 100%;
-  height: auto;
+  height: 100%; /* Make the image fill its container */
   opacity: 0.8;
-  object-fit: cover;
+  object-fit: cover; /* Scale the image to cover its container */
   filter: grayscale(100%);
 }
 
 .appCard:hover .appImage {
   filter: none;
+  object-fit: contain;
 }
 
 .appDetails {
@@ -115,4 +117,44 @@
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
+}
+
+@media (min-width: 2560px) {
+  .mainContent {
+    padding: 2rem 0;
+  }
+
+  .pageTitle {
+    font-size: 6rem;
+  }
+
+  .appGrid {
+    grid-gap: 3vw;
+  }
+
+  .appCard {
+    padding: 3vw;
+  }
+
+  .appImage {
+    object-fit: cover;
+  }
+
+  .appDetails {
+    gap: 2vh;
+  }
+
+  .appDetails div a {
+    font-size: 2rem;
+    padding: 1vw;
+    border-radius: 1vw;
+  }
+
+  .appDetails big {
+    font-size: 3rem;
+  }
+
+  .appDetails p {
+    font-size: 2rem;
+  }
 }

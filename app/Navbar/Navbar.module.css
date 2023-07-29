@@ -36,3 +36,21 @@
 .navbar div.activeDot {
   text-shadow: 0 0 5px var(--light);
 }
+
+@media (min-width: 2560px) {
+  .navbar {
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+
+  .navbar div {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .navbar div a {
+    font-size: 2rem;
+  }
+}

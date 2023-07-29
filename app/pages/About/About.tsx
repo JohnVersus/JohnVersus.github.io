@@ -17,7 +17,7 @@ const About = ({ href }: { href: string }) => {
           🚀
         </p>
 
-        <h2>Languages and Tools I Use</h2>
+        <h2 className={styles.langList}>Languages and Tools I Use</h2>
         <div className={styles.grid}>
           <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
             <Image src="/codeImages/typescript.svg" alt="typescript" width="50" height="50" />
@@ -45,6 +45,9 @@ const About = ({ href }: { href: string }) => {
           </a>
           <a href="https://expressjs.com" target="_blank" rel="noreferrer">
             <Image src="/codeImages/express.svg" alt="express" width="50" height="50" />
+          </a>
+          <a href="https://www.python.org/" target="_blank" rel="noreferrer">
+            <Image src="/codeImages/python.svg" alt="python" width="50" height="50" />
           </a>
         </div>
 

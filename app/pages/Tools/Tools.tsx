@@ -8,10 +8,18 @@ const apps = [
     description: 'Nimble UI Kit is a light weight UI kit to create stunning UI systems effortlessly!',
   },
   {
+    title: 'Developer Doc Search - ChatGPT plugin',
+    imageUrl: '/Tools/dev_doc_search.png',
+    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
+    websiteUrl: 'https://chat.openai.com/share/88697943-ba6a-494f-8213-b6e43239aa94',
+    description:
+      'Developer Doc Search plugin can access thousands of open source packages and their GitHub documentation effortlessly.',
+  },
+  {
     title: 'Youtube Summariser - ChatGPT plugin',
     imageUrl: '/Tools/yt_summarizer.png',
     githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chat.openai.com/share/50245621-986f-48b4-be9b-64632ac9b5b6',
+    websiteUrl: 'https://chat.openai.com/share/28137566-6383-43a9-a767-d7f5d6759a2e',
     description:
       'The YouTube Video Summarizer is a tool that fetches transcriptions from a YouTube video and provides a concise text summary.',
   },

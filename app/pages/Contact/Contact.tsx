@@ -2,6 +2,13 @@
 import styles from './Contact.module.css';
 
 const Contact = ({ href }: { href: string }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+    const mailtoLink = `mailto:admin@johnversus.dev?subject=Contacting John&body=Hi John, ${message}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className={styles.container} id={href}>
       <main className={styles.main}>
@@ -30,13 +37,7 @@ const Contact = ({ href }: { href: string }) => {
           </ul>
         </div>
         {
-          <form
-            className={styles.form}
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Oops..Unreachable. Try Discord.');
-            }}
-          >
+          <form className={styles.form} onSubmit={handleSubmit}>
             {/* <label htmlFor="name">Name</label>
           <input type="text" id="name" name="name" required /> */}
 

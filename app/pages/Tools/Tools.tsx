@@ -19,7 +19,7 @@ const apps = [
     title: 'Youtube Summariser - ChatGPT plugin',
     imageUrl: '/Tools/yt_summarizer.png',
     githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chat.openai.com/share/28137566-6383-43a9-a767-d7f5d6759a2e',
+    websiteUrl: 'https://chat.openai.com/share/9052f567-1abd-421a-b5ba-67ea785920a2',
     description:
       'The YouTube Video Summarizer is a tool that fetches transcriptions from a YouTube video and provides a concise text summary.',
   },

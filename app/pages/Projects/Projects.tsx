@@ -39,7 +39,7 @@ const Projects = ({ href }: { href: string }) => {
           {/* <p className={styles.description}>Top {repos.length}</p> */}
         </h1>
 
-        <div className={styles.filterGrid}>{repos.length && <ProjectSelecter repos={repos} />}</div>
+        <div className={styles.filterGrid}>{repos.length ? <ProjectSelecter repos={repos} /> : 'Loading..'}</div>
       </main>
     </div>
   );

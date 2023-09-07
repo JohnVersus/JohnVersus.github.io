@@ -10,11 +10,13 @@ const About = ({ href }: { href: string }) => {
         </h1>
 
         <p className={styles.description}>
-          Integrating
+          A Self-taught developer who transformed passion into <code className={styles.code}>code</code>🚀
+          {/* <br /> */}
+          {/* Integrating
           <code className={styles.code}>Web3</code>
           into
           <code className={styles.code}>Web2</code>
-          🚀
+          🚀 */}
         </p>
 
         <h2 className={styles.langList}>Languages and Tools I Use</h2>

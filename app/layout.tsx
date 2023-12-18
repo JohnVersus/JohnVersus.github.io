@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import ColorModeButton from './ColorModeButton/ColorModeButton';
 import Footer from './Footer/Footer';
 import Navbar from './Navbar/Navbar';
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Navbar />
         <Footer />
-        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

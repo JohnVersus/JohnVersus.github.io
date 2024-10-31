@@ -8,22 +8,6 @@ const apps = [
     description: 'Nimble UI Kit is a light weight UI kit to create stunning UI systems effortlessly!',
   },
   {
-    title: 'Developer Doc Search - ChatGPT plugin',
-    imageUrl: '/Tools/dev_doc_search.png',
-    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chat.openai.com/share/88697943-ba6a-494f-8213-b6e43239aa94',
-    description:
-      'Developer Doc Search plugin can access thousands of open source packages and their GitHub documentation effortlessly.',
-  },
-  {
-    title: 'Youtube Summariser - ChatGPT plugin',
-    imageUrl: '/Tools/yt_summarizer.png',
-    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chat.openai.com/share/9052f567-1abd-421a-b5ba-67ea785920a2',
-    description:
-      'The YouTube Video Summarizer is a tool that fetches transcriptions from a YouTube video and provides a concise text summary.',
-  },
-  {
     title: 'Github Social Image Generator',
     imageUrl: '/Tools/github_social_image_generator.png',
     githubUrl: 'https://github.com/JohnVersus/github-social-image-generator',
@@ -37,6 +21,22 @@ const apps = [
     websiteUrl: 'https://crypto-investment-tracker.vercel.app/',
     description:
       'Crypto investment tracker is a simple tool to replace your classic excel sheet. It helps to track all your crypto investments in one place.',
+  },
+  {
+    title: 'Developer Doc Search GPT',
+    imageUrl: '/Tools/dev_doc_search.png',
+    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
+    websiteUrl: 'https://chatgpt.com/g/g-AINygIiYy-developer-doc-search',
+    description:
+      'Developer Doc Search plugin can access thousands of open source packages and their GitHub documentation effortlessly.',
+  },
+  {
+    title: 'Youtube Summariser GPT',
+    imageUrl: '/Tools/yt_summarizer.png',
+    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
+    websiteUrl: 'https://chatgpt.com/g/g-dHRRUFODc-video-summarizer',
+    description:
+      'The YouTube Video Summarizer is a tool that fetches transcriptions from a YouTube video and provides a concise text summary.',
   },
 ];
 

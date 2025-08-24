@@ -81,7 +81,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
     return (
       <div className={styles.card}>
         <GitImage
-          src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${repoUrl}`}
+          src={`/api/generateGithubSocial?repo_url=${repoUrl}`}
           width={'100%'}
           height={'100%'}
           max-widht={'90vw'}

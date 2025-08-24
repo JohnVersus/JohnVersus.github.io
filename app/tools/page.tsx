@@ -1,4 +1,4 @@
-import styles from './Tools.module.css';
+import styles from './page.module.css';
 const apps = [
   {
     title: 'Nimble UI Kit',
@@ -40,13 +40,11 @@ const apps = [
   },
 ];
 
-const Tools = ({ href }: { href: string }) => {
+const Tools = () => {
   return (
-    <div className={styles.pageContainer} id={href}>
+    <div className={styles.pageContainer}>
       <main className={styles.mainContent}>
-        <h1 className={styles.pageTitle}>
-          <a href="/#tools">App Billboard</a>
-        </h1>
+        <h1 className={styles.pageTitle}>App Billboard</h1>
         <div className={styles.appGrid}>
           {apps.map((app, i) => (
             <div className={styles.appCard} title={app.title} key={i}>

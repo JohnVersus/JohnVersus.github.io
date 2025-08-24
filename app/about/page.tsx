@@ -1,13 +1,11 @@
 import Image from 'next/image';
-import styles from './About.module.css';
+import styles from './page.module.css';
 
-const About = ({ href }: { href: string }) => {
+const About = () => {
   return (
-    <div className={styles.container} id={href}>
+    <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          <a href="/#about">Hi 👋, I’m John!!</a>
-        </h1>
+        <h1 className={styles.title}>Hi 👋, I’m John!!</h1>
 
         <p className={styles.description}>
           A Self-taught developer who transformed passion into <code className={styles.code}>code</code>🚀

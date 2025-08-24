@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 
-export async function POST(request: Request) {
-  const { url } = await request.json();
+import { NextRequest } from 'next/server';
+export async function GET(request: NextRequest) {
+  const url = request.nextUrl.searchParams.get('url');
   if (!url) {
     return NextResponse.json({ error: 'Missing URL!!' }, { status: 400 });
   }

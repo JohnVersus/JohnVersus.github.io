@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { clientApiPost } from '@/app/src/utils/apiPost';
+import { clientApiGet } from '@/app/src/utils/apiClient';
 import styles from './Projects.module.css';
 import ProjectSelecter from './ProjectSelecter/ProjectSelector';
 import type { Project } from './types';
@@ -9,7 +9,7 @@ const options = {
   url: 'https://api.github.com/users/johnversus/repos',
 };
 const getRepos = async (): Promise<Array<Project>> => {
-  const response = await clientApiPost('getGitData', options);
+  const response = await clientApiGet('get-git-data', options);
   return response;
 };
 const Projects = ({ id }: { id: string }) => {

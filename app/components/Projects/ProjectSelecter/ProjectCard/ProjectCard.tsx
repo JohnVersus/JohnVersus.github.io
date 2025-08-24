@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './ProjectCard.module.css';
 import type { Project, IProjectCard } from '../../types';
 import axios from 'axios';
-import { clientApiPost } from '@/app/src/utils/apiPost';
+import { clientApiGet } from '@/app/src/utils/apiClient';
 import GitImage from './GitImage';
 
 const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {
@@ -47,7 +47,7 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
       const options = {
         url: languagesUrl,
       };
-      const resp = await clientApiPost('getGitData', options);
+      const resp = await clientApiGet('get-git-data', options);
       return resp;
     };
     getLanguages(languages).then((e) => {

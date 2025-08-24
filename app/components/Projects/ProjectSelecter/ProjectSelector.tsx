@@ -1,6 +1,6 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clientApiPost } from '@/app/src/utils/apiPost';
+import { clientApiGet } from '@/app/src/utils/apiClient';
 import ProjectCard from './ProjectCard/ProjectCard';
 import styles from './ProjectSelecter.module.css';
 import type { Project } from '../types';
@@ -56,7 +56,7 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
           const options = {
             url: project.languages_url,
           };
-          const resp = clientApiPost('getGitData', options).then((data) => {
+          const resp = clientApiGet('get-git-data', options).then((data) => {
             return data;
           });
           return resp;

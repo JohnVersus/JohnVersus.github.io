@@ -1,10 +1,10 @@
 import { createCanvas, GlobalFonts, Image } from '@napi-rs/canvas';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { repo_url, description, stars, avatar_url, languages_url } = body;
+    const { searchParams } = new URL(req.url);
+    const repo_url = searchParams.get('repo_url');
 
     if (!repo_url) {
       return new NextResponse('repo_url query parameter is required', {
@@ -20,6 +20,23 @@ export async function POST(req: NextRequest) {
     const parts = (clean_url as string).split('/');
     const owner = parts[parts.length - 2];
     const repo_name = parts[parts.length - 1];
+
+    // Call the GitHub API to get the repository metadata
+    const api_url = `https://api.github.com/repos/${owner}/${repo_name}`;
+    const response = await fetch(api_url);
+
+    // Check if the API call was successful
+    if (!response.ok) {
+      throw new Error('Failed to fetch git repo data');
+    }
+
+    // Parse the repository metadata from the API response
+    const repo_data = await response.json();
+
+    // Get the repository description and number of stars
+    const description = repo_data.description;
+    const stars = repo_data.stargazers_count;
+    const avatar_url = repo_data.owner.avatar_url;
 
     // Create a new canvas for the social image
     const [width, height] = [1920, 960];
@@ -210,7 +227,7 @@ export async function POST(req: NextRequest) {
     //     );
     //   }
 
-    const languagesRes = await fetch(languages_url);
+    const languagesRes = await fetch(repo_data.languages_url);
     // Check if the API call was successful
     if (!languagesRes.ok) {
       throw new Error('Failed to fetch git repo data');

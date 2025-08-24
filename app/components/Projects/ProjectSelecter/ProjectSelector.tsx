@@ -144,7 +144,6 @@ const ProjectSelecter = ({ repos }: { repos: Array<Project> }) => {
               return (
                 <ProjectCard
                   key={i}
-                  repo={repo}
                   name={repo.name}
                   description={repo.description}
                   languages={repo.languages_url}

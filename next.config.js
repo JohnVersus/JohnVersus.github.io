@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     loader: 'akamai',
     path: '/',
-    domains: ['webapi.johnversus.dev'],
+    domains: [],
     // formats: ['image/avif', 'image/webp', 'image/jpg'],
     // remotePatterns: [
     //   {
@@ -19,6 +19,18 @@ const nextConfig = {
   // basePath: '/Profile',
   // assetPrefix: '/Profile',
   experimental: { appDir: true },
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+      };
+    }
+    config.externals.push({
+      '@napi-rs/canvas': 'commonjs @napi-rs/canvas',
+    });
+    return config;
+  },
 };
 
 module.exports = nextConfig;

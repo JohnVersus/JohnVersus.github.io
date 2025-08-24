@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
     //     'Impact',
     //     'impact.ttf',
     //   );
-    const pathToFont = '';
+    const pathToFont = process.cwd() + '/public/fonts/impact.ttf';
     GlobalFonts.registerFromPath(pathToFont, 'Impact');
 
     // set the font for the context

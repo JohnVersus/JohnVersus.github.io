@@ -40,9 +40,9 @@ const apps = [
   },
 ];
 
-const Tools = ({ href }: { href: string }) => {
+const Tools = ({ id }: { id: string }) => {
   return (
-    <div className={styles.pageContainer} id={href}>
+    <div className={styles.pageContainer} id={id}>
       <main className={styles.mainContent}>
         <h1 className={styles.pageTitle}>
           <a href="/#tools">App Billboard</a>

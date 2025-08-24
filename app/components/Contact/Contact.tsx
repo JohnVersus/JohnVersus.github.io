@@ -1,7 +1,7 @@
 'use client';
 import styles from './Contact.module.css';
 
-const Contact = ({ href }: { href: string }) => {
+const Contact = ({ id }: { id: string }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const message = (document.getElementById('message') as HTMLTextAreaElement).value;
@@ -10,7 +10,7 @@ const Contact = ({ href }: { href: string }) => {
   };
 
   return (
-    <div className={styles.container} id={href}>
+    <div className={styles.container} id={id}>
       <main className={styles.main}>
         <h1 className={styles.title}>
           <a href="/#contact">Contact</a>

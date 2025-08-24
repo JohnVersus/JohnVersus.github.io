@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './ProjectCard.module.css';
 import type { Project, IProjectCard } from '../../types';
 import axios from 'axios';
-import { clientApiPost } from 'utils/apiPost';
+import { clientApiPost } from '@/app/src/utils/apiPost';
 import GitImage from './GitImage';
 
 const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {

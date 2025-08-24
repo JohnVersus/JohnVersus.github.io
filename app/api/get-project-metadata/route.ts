@@ -1,10 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import jsdom from 'jsdom';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { url } = req.body;
+export async function POST(request: Request) {
+  const { url } = await request.json();
   if (!url) {
-    throw new Error('Missing URL!!');
+    return NextResponse.json({ error: 'Missing URL!!' }, { status: 400 });
   }
   try {
     const myHeaders = new Headers();
@@ -73,12 +73,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         twitterImage,
       },
     };
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-    res.status(200).json({ metadata });
+
+    const res = NextResponse.json({ metadata });
+    res.headers.set('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
+    return res;
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
-      res.status(400).json(error.message);
+      return NextResponse.json({ error: error.message }, { status: 400 });
     }
+    return NextResponse.json({ error: 'An unknown error occurred' }, { status: 500 });
   }
 }

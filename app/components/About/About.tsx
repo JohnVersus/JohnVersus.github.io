@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import styles from './About.module.css';
 
-const About = ({ href }: { href: string }) => {
+const About = ({ id }: { id: string }) => {
   return (
-    <div className={styles.container} id={href}>
+    <div className={styles.container} id={id}>
       <main className={styles.main}>
         <h1 className={styles.title}>
           <a href="/#about">Hi 👋, I’m John!!</a>

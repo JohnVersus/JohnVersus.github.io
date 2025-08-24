@@ -14,9 +14,7 @@ export async function GET(req: NextRequest) {
 
     // Get the repository name and owner from the URL
     const clean_url =
-      decodeURIComponent(repo_url as string).substring(
-        (repo_url as string).length - 1,
-      ) == '/'
+      decodeURIComponent(repo_url as string).substring((repo_url as string).length - 1) == '/'
         ? (repo_url as string).slice(0, -1)
         : repo_url;
     const parts = (clean_url as string).split('/');
@@ -67,13 +65,13 @@ export async function GET(req: NextRequest) {
     //     'Impact',
     //     'impact.ttf',
     //   );
-    const pathToFont = process.cwd() + '/public/fonts/impact.ttf';
+    const pathToFont = '';
     GlobalFonts.registerFromPath(pathToFont, 'Impact');
 
     // set the font for the context
-    const font = '80px Impact';
-    const font_small = '60px Impact';
-    const font_mini = '40px Impact';
+    const font = '80px Roboto'; // impact not used as it is not accessable in vercel
+    const font_small = '60px Roboto';
+    const font_mini = '40px Roboto';
 
     // Set the background color
     ctx.fillStyle = '#43475a';
@@ -123,14 +121,10 @@ export async function GET(req: NextRequest) {
     // Add the repository name to the image
     ctx.fillStyle = '#4be670';
     ctx.font = font;
-    const fixed_repo_name =
-      repo_name[0].toUpperCase() +
-      repo_name.replaceAll('-', ' ')?.replaceAll('_', ' ')?.slice(1);
+    const fixed_repo_name = repo_name[0].toUpperCase() + repo_name.replaceAll('-', ' ')?.replaceAll('_', ' ')?.slice(1);
 
     ctx.fillText(
-      fixed_repo_name.length > 35
-        ? fixed_repo_name.substring(0, 35) + '...'
-        : fixed_repo_name,
+      fixed_repo_name.length > 35 ? fixed_repo_name.substring(0, 35) + '...' : fixed_repo_name,
       x_pos,
       top_padding + imgBoundary,
     );
@@ -143,10 +137,7 @@ export async function GET(req: NextRequest) {
     //   const english = /^[A-Za-z0-9]*$/;
     const max_words = 7;
     if (description_array && description_array.length) {
-      let line1 = description_array
-        .slice(0, max_words)
-        .toString()
-        .replaceAll(',', ' ');
+      let line1 = description_array.slice(0, max_words).toString().replaceAll(',', ' ');
       let line2 = description_array
         .slice(max_words * 1, max_words * 2)
         .toString()
@@ -180,26 +171,10 @@ export async function GET(req: NextRequest) {
       const line_incriment = 80;
 
       ctx.fillText(line1, x_pos, top_padding * 2 + imgBoundary);
-      ctx.fillText(
-        line2,
-        x_pos,
-        top_padding * 2 + imgBoundary + line_incriment,
-      );
-      ctx.fillText(
-        line3,
-        x_pos,
-        top_padding * 2 + imgBoundary + line_incriment * 2,
-      );
-      ctx.fillText(
-        line4,
-        x_pos,
-        top_padding * 2 + imgBoundary + line_incriment * 3,
-      );
-      ctx.fillText(
-        line5,
-        x_pos,
-        top_padding * 2 + imgBoundary + line_incriment * 4,
-      );
+      ctx.fillText(line2, x_pos, top_padding * 2 + imgBoundary + line_incriment);
+      ctx.fillText(line3, x_pos, top_padding * 2 + imgBoundary + line_incriment * 2);
+      ctx.fillText(line4, x_pos, top_padding * 2 + imgBoundary + line_incriment * 3);
+      ctx.fillText(line5, x_pos, top_padding * 2 + imgBoundary + line_incriment * 4);
     }
 
     // Add the number of stars to the image
@@ -240,11 +215,7 @@ export async function GET(req: NextRequest) {
       ctx.fillStyle = '#ffffff';
       const stars_text = `${star_format.format(stars)}`;
       const stars_text_width = ctx.measureText(stars_text).width;
-      ctx.fillText(
-        stars_text,
-        right_content_x_pos - stars_text_width - starsize - 10,
-        star_padding_top,
-      );
+      ctx.fillText(stars_text, right_content_x_pos - stars_text_width - starsize - 10, star_padding_top);
     }
     //   else {
     //     const stars_text = '✨';
@@ -281,11 +252,7 @@ export async function GET(req: NextRequest) {
 
         ctx.fillStyle = '#ffffff';
         const second_text = langWeight.toFixed(2).toString() + ' %';
-        ctx.fillText(
-          second_text,
-          x_pos + first_text_width + 10,
-          bottom_padding - i * 50,
-        );
+        ctx.fillText(second_text, x_pos + first_text_width + 10, bottom_padding - i * 50);
       }
     }
 
@@ -293,11 +260,7 @@ export async function GET(req: NextRequest) {
     ctx.font = font_mini;
     ctx.fillStyle = '#818487';
     const owner_text_width = ctx.measureText(owner).width;
-    ctx.fillText(
-      owner,
-      right_content_x_pos - owner_text_width,
-      name_padding_top,
-    );
+    ctx.fillText(owner, right_content_x_pos - owner_text_width, name_padding_top);
 
     // Load the image
     const image = new Image();
@@ -321,13 +284,7 @@ export async function GET(req: NextRequest) {
     ctx.clip();
 
     // Draw the image inside the clipping path
-    ctx.drawImage(
-      image,
-      right_content_x_pos - image.width,
-      name_padding_top - image.height - 50,
-      100,
-      100,
-    );
+    ctx.drawImage(image, right_content_x_pos - image.width, name_padding_top - image.height - 50, 100, 100);
 
     // Restore the canvas state
     ctx.restore();
@@ -345,7 +302,7 @@ export async function GET(req: NextRequest) {
     });
   } catch (e) {
     if (e instanceof Error) {
-      console.trace(e.message);
+      console.error(e.message);
       return new NextResponse(e.message, { status: 400 });
     }
     return new NextResponse('An unknown error occurred', { status: 500 });

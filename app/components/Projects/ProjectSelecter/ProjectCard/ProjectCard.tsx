@@ -5,12 +5,11 @@ import styles from './ProjectCard.module.css';
 import type { Project, IProjectCard } from '../../types';
 import axios from 'axios';
 import { clientApiGet } from '@/app/src/utils/apiClient';
-import GitImage from './GitImage';
-
-const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProjectCard) => {
+const ProjectCard = ({ name, description, languages, repoUrl, filter, repo }: IProjectCard) => {
   const [data, setData] = useState<Array<string>>([]);
   const [isActive, setIsActive] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [imageUrl, setImageUrl] = useState<string>('');
 
   const handleImageClick = () => {
     if (isActive) {
@@ -55,41 +54,42 @@ const ProjectCard = ({ name, description, languages, repoUrl, filter }: IProject
     });
   }, [languages]);
 
-  // useEffect(() => {
-  //   let ConvertStringToHTML = function (str: string) {
-  //     let parser = new DOMParser();
-  //     let doc = parser.parseFromString(str, 'text/html');
-  //     return doc.head;
-  //   };
-
-  //   const getUrl = async () => {
-  //     const options = {
-  //       url: repoUrl,
-  //     };
-  //     const result = await axios.post('api/getProjectMetadata', options, {
-  //       // headers: {
-  //       //   'content-type': 'application/json',
-  //       // },
-  //     });
-  //     const { title, description, ogData, twitterData } = result.data.metadata;
-  //     setMetadata({ title, description, ogData, twitterData });
-  //   };
-  //   repoUrl && getUrl();
-  // }, [repoUrl]);
+  useEffect(() => {
+    const getImage = async () => {
+      const response = await axios.post(
+        '/api/generateGithubSocial',
+        {
+          repo_url: repo.html_url,
+          description: repo.description,
+          stars: repo.stargazers_count,
+          avatar_url: repo.owner.avatar_url,
+          languages_url: repo.languages_url,
+        },
+        {
+          responseType: 'arraybuffer',
+        },
+      );
+      const blob = new Blob([response.data], { type: 'image/png' });
+      const url = URL.createObjectURL(blob);
+      setImageUrl(url);
+    };
+    getImage();
+  }, [repo]);
 
   if (Object.keys(data).filter((element) => filter.includes(element)).length) {
     return (
       <div className={styles.card}>
-        <GitImage
-          src={`/api/generateGithubSocial?repo_url=${repoUrl}`}
-          width={'100%'}
-          height={'100%'}
-          max-widht={'90vw'}
-          alt={`${repoUrl}`}
-          className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
-          onClick={handleImageClick}
-          loading="lazy"
-        ></GitImage>
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            width={1920}
+            height={960}
+            alt={`${repoUrl}`}
+            className={`${isActive ? styles.active : ''} ${isExiting ? styles.exit : ''}`}
+            onClick={handleImageClick}
+            loading="lazy"
+          />
+        )}
         <div>
           <p className={styles.visuallyHidden}> {name}</p>
           <p className={styles.visuallyHidden}>{description}</p>

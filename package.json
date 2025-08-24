@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@napi-rs/canvas": "^0.1.77",
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.0.2",
     "axios": "^1.2.0",

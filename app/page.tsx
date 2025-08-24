@@ -1,14 +1,26 @@
 import styles from './page.module.css';
+import About from '@/app/components/About/About';
+import Projects from '@/app/components/Projects/Projects';
+import Tools from '@/app/components/Tools/Tools';
+import Contact from '@/app/components/Contact/Contact';
+
+const PagesArray = [
+  <About key={'about'} id="about" />,
+  <Tools key={'tools'} id="tools" />,
+  <Projects key={'projects'} id="projects" />,
+  <Contact key={'contact'} id="contact" />,
+];
 
 const Home = () => {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to my portfolio</h1>
-        <p className={styles.description}>
-          Please use the navigation to learn more about me.
-        </p>
-      </main>
+    <div className={styles.scrollContainer}>
+      {PagesArray?.map((page, i) => {
+        return (
+          <div key={i} className={styles.scrollChild}>
+            {page}
+          </div>
+        );
+      })}
     </div>
   );
 };

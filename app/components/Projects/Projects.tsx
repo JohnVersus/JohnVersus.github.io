@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { clientApiPost } from '@/app/src/utils/apiPost';
-import styles from './page.module.css';
+import styles from './Projects.module.css';
 import ProjectSelecter from './ProjectSelecter/ProjectSelector';
 import type { Project } from './types';
 
@@ -12,7 +12,7 @@ const getRepos = async (): Promise<Array<Project>> => {
   const response = await clientApiPost('getGitData', options);
   return response;
 };
-const Projects = () => {
+const Projects = ({ id }: { id: string }) => {
   // const repoData = await getRepos();
   const [repoData, setRepoData] = useState<Array<Project>>();
 
@@ -32,10 +32,10 @@ const Projects = () => {
     }
   }
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={id}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          My Git Projects
+          <a href="/#projects">My Git Projects</a>
           {/* <p className={styles.description}>Top {repos.length}</p> */}
         </h1>
 

@@ -1,5 +1,6 @@
 import { createCanvas, GlobalFonts, Image } from '@napi-rs/canvas';
 import { NextRequest, NextResponse } from 'next/server';
+import path from 'path';
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,22 +40,13 @@ export async function POST(req: NextRequest) {
     });
 
     // register a custom font
-    //   const pathToFont = join(
-    //     __dirname,
-    //     '..',
-    //     '..',
-    //     'utils',
-    //     'font',
-    //     'Impact',
-    //     'impact.ttf',
-    //   );
-    const pathToFont = '';
-    GlobalFonts.registerFromPath(pathToFont, 'Impact');
+    const fontPath = path.join(process.cwd(), 'public', 'fonts', 'impact.ttf');
+    GlobalFonts.registerFromPath(fontPath, 'Impact');
 
     // set the font for the context
-    const font = '80px Roboto'; // impact not used as it is not accessable in vercel
-    const font_small = '60px Roboto';
-    const font_mini = '40px Roboto';
+    const font = '80px Impact';
+    const font_small = '60px Impact';
+    const font_mini = '40px Impact';
 
     // Set the background color
     ctx.fillStyle = '#43475a';

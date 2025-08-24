@@ -71,9 +71,9 @@ export async function GET(req: NextRequest) {
     GlobalFonts.registerFromPath(pathToFont, 'Impact');
 
     // set the font for the context
-    const font = '80px Impact';
-    const font_small = '60px Impact';
-    const font_mini = '40px Impact';
+    const font = '80px Roboto'; // impact not used as it is not accessable in vercel
+    const font_small = '60px Roboto';
+    const font_mini = '40px Roboto';
 
     // Set the background color
     ctx.fillStyle = '#43475a';
@@ -339,7 +339,7 @@ export async function GET(req: NextRequest) {
     return new NextResponse(image_data, {
       headers: {
         'Content-Type': 'image/png',
-        'Cache-Control': 's-maxage=3600, stale-while-revalidate',
+        'Cache-Control': 's-maxage=120, stale-while-revalidate',
       },
       status: 200,
     });

@@ -101,6 +101,7 @@ export interface Project {
 }
 
 export interface IProjectCard {
+  repo: Project;
   name: String;
   description: String;
   languages: URL;

@@ -1,17 +1,30 @@
 import styles from './Tools.module.css';
 
-const apps = [
+type App = {
+  title: string;
+  imageUrl: string;
+  githubUrl: string;
+  websiteUrl?: string;
+  description: string;
+  tag: string;
+  featured?: boolean;
+};
+
+const githubSocial = (repo: string) =>
+  `https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=https://github.com/JohnVersus/${repo}`;
+
+const apps: App[] = [
   {
-    title: 'Nimble UI Kit',
-    imageUrl: '/Tools/nimbleuiKit.jpeg',
-    githubUrl: 'https://github.com/JohnVersus/nimbleuikit',
-    websiteUrl: 'https://nimbleuikit-website.vercel.app/',
-    description: 'A lightweight UI kit for crafting stunning interface systems without the bloat.',
-    tag: 'Design system',
+    title: 'Animate Code',
+    imageUrl: '/Tools/animate_code.png',
+    githubUrl: 'https://github.com/JohnVersus/animate_code',
+    websiteUrl: 'https://animate-code-pi.vercel.app',
+    description: 'Turn code snippets into smooth animated videos — perfect for demos, docs, and social posts.',
+    tag: 'Creator tool',
     featured: true,
   },
   {
-    title: 'Github Social Image Generator',
+    title: 'GitHub Social Image Generator',
     imageUrl: '/Tools/github_social_image_generator.png',
     githubUrl: 'https://github.com/JohnVersus/github-social-image-generator',
     websiteUrl: 'https://github-social-image-generator.vercel.app/',
@@ -19,28 +32,27 @@ const apps = [
     tag: 'Dev tool',
   },
   {
-    title: 'Crypto Investment Tracker',
-    imageUrl: '/Tools/cryptoInvestmentTracker.png',
-    githubUrl: 'https://github.com/JohnVersus/crypto-investment-tracker',
-    websiteUrl: 'https://crypto-investment-tracker.vercel.app/',
-    description: 'Replace the classic spreadsheet — track every crypto investment in one calm place.',
-    tag: 'Finance',
+    title: 'GPT Actions Python Boilerplate',
+    imageUrl: githubSocial('gpt-actions-python-vercel-boilerplate'),
+    githubUrl: 'https://github.com/JohnVersus/gpt-actions-python-vercel-boilerplate',
+    websiteUrl: 'https://gpt-actions-python-vercel-boilerplate.vercel.app',
+    description:
+      'FastAPI + Vercel boilerplate for custom GPT Actions — ship ChatGPT integrations without the setup grind.',
+    tag: 'AI · Boilerplate',
   },
   {
-    title: 'Developer Doc Search GPT',
-    imageUrl: '/Tools/dev_doc_search.png',
-    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chatgpt.com/g/g-AINygIiYy-developer-doc-search',
-    description: 'Search thousands of open-source packages and GitHub docs through a conversational interface.',
-    tag: 'AI',
+    title: 'Solana NFT Minter',
+    imageUrl: githubSocial('solana-nft-minter'),
+    githubUrl: 'https://github.com/JohnVersus/solana-nft-minter',
+    description: 'A dApp to mint NFTs on the Solana blockchain — wallet-connected minting flow built with Next.js.',
+    tag: 'Web3 · Solana',
   },
   {
-    title: 'Youtube Summariser GPT',
-    imageUrl: '/Tools/yt_summarizer.png',
-    githubUrl: 'https://github.com/JohnVersus/chatgpt-plugin-python-vercel-boilerplate',
-    websiteUrl: 'https://chatgpt.com/g/g-dHRRUFODc-video-summarizer',
-    description: 'Fetch YouTube transcripts and turn long videos into crisp, usable summaries.',
-    tag: 'AI',
+    title: 'Solana NFT Explorer',
+    imageUrl: githubSocial('solana-nft-explorer'),
+    githubUrl: 'https://github.com/JohnVersus/solana-nft-explorer',
+    description: 'Explore NFTs held by any Solana wallet — browse collections and metadata in a clean interface.',
+    tag: 'Web3 · Solana',
   },
 ];
 
@@ -84,10 +96,27 @@ const Tools = ({ id }: { id: string }) => {
                   <a href={app.githubUrl} target="_blank" rel="noreferrer">
                     GitHub
                   </a>
-                  <a href={app.websiteUrl} target="_blank" rel="noreferrer" className={styles.primaryLink}>
-                    Live site
-                    <span aria-hidden>↗</span>
-                  </a>
+                  {app.websiteUrl ? (
+                    <a
+                      href={app.websiteUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.primaryLink}
+                    >
+                      Live site
+                      <span aria-hidden>↗</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={app.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.primaryLink}
+                    >
+                      View repo
+                      <span aria-hidden>↗</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

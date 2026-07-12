@@ -62,11 +62,18 @@
   height: 100%;
   min-height: 10rem;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
 }
 
+.featured .appImage {
+  min-height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
 .appCard:hover .appImage {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .tag {

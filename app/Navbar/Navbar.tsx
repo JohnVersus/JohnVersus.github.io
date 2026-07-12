@@ -1,78 +1,72 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import styles from './Navbar.module.css';
 
-const sections = ['#about', '#tools', '#projects', '#contact'];
+const sections = [
+  { id: 'about', label: 'About', icon: '01' },
+  { id: 'tools', label: 'Apps', icon: '02' },
+  { id: 'contact', label: 'Contact', icon: '03' },
+] as const;
+
+type SectionId = (typeof sections)[number]['id'];
+
+function resolveActiveSection(): SectionId {
+  const probe = window.scrollY + window.innerHeight * 0.33;
+  let current: SectionId = 'about';
+
+  for (const { id } of sections) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    if (probe >= top - 4) current = id;
+  }
+
+  const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 64;
+  if (nearBottom) current = 'contact';
+
+  return current;
+}
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState<SectionId>('about');
 
-  // hash change event
   useEffect(() => {
-    const onHashChange = () => {
-      setActiveSection(window.location.hash);
-    };
-    window.addEventListener('hashchange', onHashChange);
-
+    const onScroll = () => setActiveSection(resolveActiveSection());
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     return () => {
-      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, []);
 
-  // scroll change event
-  useEffect(() => {
-    const onScroll = () => {
-      const buffer = window.innerHeight / 2; // Create a buffer zone in the middle of the viewport
-
-      for (const hash of sections) {
-        const sectionElement = document.querySelector(hash);
-        const rect = sectionElement?.getBoundingClientRect();
-        if (rect?.top && rect?.bottom && rect?.top <= buffer && rect?.top >= -buffer) {
-          // Adjust the condition
-          if (window.location.hash !== hash) {
-            window.history.replaceState(null, '', hash);
-            setActiveSection(hash);
-          }
-          return;
-        }
-      }
-    };
-    document.addEventListener('scroll', onScroll, true);
-
-    return () => {
-      document.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      setActiveSection(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
+  const handleClick = (id: SectionId) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActiveSection(id);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', `#${id}`);
+  };
 
   return (
-    <div className={styles.navbar}>
-      <div
-        title="Home page"
-        className={activeSection === '#about' || activeSection === '' ? styles.activeDot : styles.dot}
-      >
-        <a href="#about">ℹ️</a>
-      </div>
-      <div title="My tools" className={activeSection === '#tools' ? styles.activeDot : styles.dot}>
-        <a href="#tools">💻</a>
-      </div>
-      <div title="My projects" className={activeSection === '#projects' ? styles.activeDot : styles.dot}>
-        <a href="#projects">🗂️</a>
-      </div>
-      <div title="Contact" className={activeSection === '#contact' ? styles.activeDot : styles.dot}>
-        <a href="#contact">💬</a>
-      </div>
-    </div>
+    <nav className={styles.navbar} aria-label="Section navigation">
+      {sections.map(({ id, label, icon }) => {
+        const isActive = activeSection === id;
+        return (
+          <a
+            key={id}
+            href={`#${id}`}
+            onClick={handleClick(id)}
+            className={isActive ? `${styles.item} ${styles.itemActive}` : styles.item}
+            aria-current={isActive ? 'true' : undefined}
+            title={label}
+          >
+            <span className={styles.icon}>{icon}</span>
+            <span className={styles.label}>{label}</span>
+          </a>
+        );
+      })}
+    </nav>
   );
 };
 

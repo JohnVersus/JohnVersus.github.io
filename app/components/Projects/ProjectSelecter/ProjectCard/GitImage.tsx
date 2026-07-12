@@ -1,22 +1,40 @@
-import { useState } from 'react';
+import { useState, ImgHTMLAttributes } from 'react';
 
-const GitImage = ({ src = '', maxRetries = 3, ...props }) => {
+type GitImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+  src?: string;
+  maxRetries?: number;
+};
+
+const GitImage = ({ src = '', maxRetries = 3, alt = '', ...props }: GitImageProps) => {
   const [errorCount, setErrorCount] = useState(0);
-  const [retrySuffix, setRetrySuffix] = useState(''); // New state variable for the retry suffix
 
   const handleError = () => {
-    console.log(`Error loading image at ${src}. Retry count: ${errorCount + 1}`);
     setErrorCount((count) => count + 1);
-    setRetrySuffix(`#${errorCount + 1}`); // Change the retry suffix each time handleError runs
   };
 
   if (errorCount > maxRetries) {
-    console.log(`Failed to load image at ${src} after ${maxRetries} attempts.`);
-    return null; // Or you can render an alternative content
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          minHeight: '8rem',
+          display: 'grid',
+          placeItems: 'center',
+          background: 'var(--bg-soft)',
+          color: 'var(--text-subtle)',
+          fontSize: '0.85rem',
+        }}
+      >
+        Preview unavailable
+      </div>
+    );
   }
 
+  const retrySrc = errorCount > 0 ? `${src}${src.includes('?') ? '&' : '?'}retry=${errorCount}` : src;
+
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={src + retrySuffix} onError={handleError} {...props} alt={src} />; // Add the retry suffix to the src prop
+  return <img src={retrySrc} onError={handleError} alt={alt} {...props} />;
 };
 
 export default GitImage;

@@ -1,22 +1,24 @@
-import axios from 'axios';
-
-export const clientApiGet = async (endpoint: string, params: any) => {
+export const clientApiGet = async (endpoint: string, params: Record<string, unknown>) => {
   try {
-    const queryParams = new URLSearchParams(params).toString();
-    const result = fetch(`${process.env.NEXT_PUBLIC_URL}/api/${endpoint}?${queryParams}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return result;
+    const base = process.env.NEXT_PUBLIC_URL || '';
+    const queryParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        queryParams.set(key, String(value));
+      }
+    });
+
+    const response = await fetch(`${base}/api/${endpoint}?${queryParams.toString()}`);
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      return { error: errorBody.error || response.statusText };
+    }
+    return await response.json();
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
+      return { error: error.message };
     }
+    return { error: 'Unknown error' };
   }
 };

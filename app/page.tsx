@@ -1,27 +1,23 @@
 import styles from './page.module.css';
 import About from '@/app/components/About/About';
-import Projects from '@/app/components/Projects/Projects';
 import Tools from '@/app/components/Tools/Tools';
 import Contact from '@/app/components/Contact/Contact';
 
-const PagesArray = [
-  <About key={'about'} id="about" />,
-  <Tools key={'tools'} id="tools" />,
-  <Projects key={'projects'} id="projects" />,
-  <Contact key={'contact'} id="contact" />,
+const sections = [
+  { id: 'about', Component: About },
+  { id: 'tools', Component: Tools },
+  { id: 'contact', Component: Contact },
 ];
 
 const Home = () => {
   return (
-    <div className={styles.scrollContainer}>
-      {PagesArray?.map((page, i) => {
-        return (
-          <div key={i} className={styles.scrollChild}>
-            {page}
-          </div>
-        );
-      })}
-    </div>
+    <main className={styles.page}>
+      {sections.map(({ id, Component }) => (
+        <section key={id} id={id} className={styles.section} aria-labelledby={`${id}-heading`}>
+          <Component id={id} />
+        </section>
+      ))}
+    </main>
   );
 };
 

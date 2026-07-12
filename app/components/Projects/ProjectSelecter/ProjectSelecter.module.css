@@ -1,86 +1,105 @@
-.filterGridItem input[type='checkbox'] ~ span {
-  padding: 0.5rem;
-  background-color: var(--dark);
-  border: 1px solid var(--light);
-  border-radius: 0.5rem;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.filterGridItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-elevated) 82%, transparent);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  user-select: none;
+}
+
+.chip {
+  display: inline-flex;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.filterGridItem input[type='checkbox'] {
-  display: none;
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
-.filterGridItem input[type='checkbox']:checked ~ span {
-  width: auto;
-  height: auto;
-  background-color: var(--tertiary);
-  color: var(--dark);
-  border: none;
+
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+}
+
+.chip:hover span {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.chip input:checked + span {
+  color: #041014;
+  background: linear-gradient(135deg, var(--primary), color-mix(in srgb, var(--secondary) 55%, var(--primary)));
+  border-color: transparent;
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.loadingChip {
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+  padding: 0.45rem 0.75rem;
+  white-space: nowrap;
+}
+
+.meta {
+  margin: 0;
+  color: var(--text-subtle);
+  font-size: 0.85rem;
+}
+
+.meta strong {
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .projects {
-  border-radius: 2rem;
-  box-shadow: inset -5px -5px 10px 0px var(--shadow), inset 5px 5px 10px 0px var(--radiance);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-elevated) 55%, transparent);
+  padding: 0.85rem;
 }
 
 .grid {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   display: grid;
-  height: 60vh;
-  width: 60vw;
-  grid-template-columns: repeat(auto-fit, minamx(25vw, 2fr));
-  margin: 0 auto;
-  justify-items: center;
-  justify-content: center;
-  grid-auto-flow: row;
-  gap: 1rem;
-  /* background-color: var(--c4); */
-  padding: 1rem;
-  border-radius: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  max-height: min(52vh, 34rem);
   overflow: auto;
-  position: relative;
-  /* border-top: 0.2rem solid var(--primary);
-  border-bottom: 0.2rem solid var(--primary); */
+  padding: 0.15rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(1, 1fr);
-    width: 95vw;
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
   }
-  .projects {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-  }
-}
-@media (min-width: 800px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 95vw;
-  }
-}
 
-@media (min-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 75vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 60vw;
-  }
-}
-
-@media (min-width: 2560px) {
-  .filterGridItem input[type='checkbox'] ~ span {
-    padding: 1rem; /* increase padding */
-    font-size: 1.5rem; /* increase font size */
-    border-radius: 1rem;
+  .filterGridItem {
+    border-radius: var(--radius-lg);
   }
 }

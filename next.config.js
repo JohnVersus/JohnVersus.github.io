@@ -1,24 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
-    loader: 'akamai',
-    path: '/',
-    domains: ['webapi.johnversus.dev'],
-    // formats: ['image/avif', 'image/webp', 'image/jpg'],
-    // remotePatterns: [
-    //   {
-    //     protocol: 'https',
-    //     hostname: 'webapi.johnversus.dev',
-    //     port: '',
-    //     pathname: '/api/generateGithubSocial/**',
-    //   },
-    // ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'webapi.johnversus.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+      },
+    ],
   },
-  // basePath: '/Profile',
-  // assetPrefix: '/Profile',
-  experimental: { appDir: true },
 };
 
 module.exports = nextConfig;

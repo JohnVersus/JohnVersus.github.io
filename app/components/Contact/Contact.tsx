@@ -1,59 +1,94 @@
 'use client';
+import { FormEvent, useState } from 'react';
 import styles from './Contact.module.css';
 
+const socials = [
+  {
+    name: 'Twitter / X',
+    handle: '@johnvs_nagendra',
+    href: 'https://x.com/johnvs_nagendra',
+    blurb: 'Thoughts, ships, and updates',
+  },
+  {
+    name: 'GitHub',
+    handle: 'JohnVersus',
+    href: 'https://github.com/JohnVersus',
+    blurb: 'Open source & experiments',
+  },
+  {
+    name: 'Discord',
+    handle: 'JohnVersus#1595',
+    href: 'https://discord.com/users/JohnVersus#1595',
+    blurb: 'Say hello in real time',
+  },
+];
+
 const Contact = ({ id }: { id: string }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [message, setMessage] = useState('');
+  const [sentHint, setSentHint] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
-    const mailtoLink = `mailto:admin@johnversus.dev?subject=Contacting John&body=Hi John, ${message}`;
+    const mailtoLink = `mailto:admin@johnversus.dev?subject=${encodeURIComponent(
+      'Contacting John',
+    )}&body=${encodeURIComponent(`Hi John,\n\n${message}`)}`;
     window.location.href = mailtoLink;
+    setSentHint(true);
   };
 
   return (
-    <div className={styles.container} id={id}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          <a href="/#contact">Contact</a>
-        </h1>
-        <div className={styles.contactInfo}>
-          <h2>Feel free to reach out to me on:</h2>
-          <ul>
-            <li>
-              <a href="https://twitter.com/_JohnVersus" target="_blank" rel="noopener noreferrer">
-                Twitter
+    <div className={styles.container}>
+      <div className={styles.main}>
+        <header className={styles.header}>
+          <p className="sectionEyebrow">Let&apos;s talk</p>
+          <h1 id={`${id}-heading`} className="sectionTitle">
+            Start a <span className="gradientText">conversation</span>
+          </h1>
+          <p className="sectionLead">
+            Whether it&apos;s a product idea, collaboration, or just a hello — I&apos;d love to hear
+            from you.
+          </p>
+        </header>
+
+        <div className={styles.layout}>
+          <div className={styles.socials}>
+            {socials.map((social) => (
+              <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className={styles.socialCard}>
+                <div>
+                  <p className={styles.socialName}>{social.name}</p>
+                  <p className={styles.socialHandle}>{social.handle}</p>
+                  <p className={styles.socialBlurb}>{social.blurb}</p>
+                </div>
+                <span className={styles.arrow} aria-hidden>
+                  ↗
+                </span>
               </a>
-            </li>
-            <li>
-              <a href="https://github.com/JohnVersus" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://discord.com/users/JohnVersus#1595" target="_blank" rel="noopener noreferrer">
-                Discord
-              </a>
-            </li>
-            {/* Add more social media links or contact details as needed */}
-          </ul>
-        </div>
-        {
+            ))}
+          </div>
+
           <form className={styles.form} onSubmit={handleSubmit}>
-            {/* <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" required /> */}
-
-            {/* <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="Enter email" />
-
-            <label htmlFor="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required placeholder="Enter subject" /> */}
-
+            <div className={styles.formHeader}>
+              <h2>Send a note</h2>
+              <p>Opens your email client — no spam, no forms warehouse.</p>
+            </div>
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows={5} required placeholder="Enter message" />
-
-            <button type="submit">Submit</button>
+            <textarea
+              id="message"
+              name="message"
+              rows={6}
+              required
+              placeholder="Hi John, I have an idea..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <button type="submit">
+              Open email draft
+              <span aria-hidden>→</span>
+            </button>
+            {sentHint && <p className={styles.hint}>If nothing opened, email admin@johnversus.dev directly.</p>}
           </form>
-        }
-      </main>
+        </div>
+      </div>
     </div>
   );
 };

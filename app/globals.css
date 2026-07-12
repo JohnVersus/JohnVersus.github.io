@@ -1,95 +1,128 @@
+:root {
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --bg: #f3f1ea;
+  --bg-elevated: #fffdf8;
+  --text: #10141c;
+  --text-muted: #4b5565;
+  --primary: #0f766e;
+  --secondary: #1d4ed8;
+  --accent: #b45309;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  min-height: 100%;
+  font-family: var(--font-body), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+body {
+  position: relative;
+  overflow-x: hidden;
 }
 
-:root.light {
-  --primary: #00916e;
-  --secondary: #03a8a0;
-  --tertiary: #5f26a4;
-  --dark: #fffcff;
-  --light: #1c1c1c;
-  --gray: #f3eff5;
-  --shadow: #00000020;
-  --radiance: #fffefe60;
-  background-color: lightgrey;
-  color: var(--light);
-
-  --c1: #abcdef;
-  --c2: #c8ffd4;
-  --c3: #b8e8fc;
-  --c4: #a1b2c3;
-}
-
-:root.dark {
-  --primary: #03a8a0;
-  --secondary: #00916e;
-  --tertiary: #ffd602;
-  --dark: #1c1c1c;
-  --light: #fffcff;
-  --gray: #f3eff5;
-  --shadow: #00000060;
-  --radiance: #ffffff20;
-  background-color: var(--dark);
-  color: var(--light);
-
-  --c1: #123456;
-  --c2: #2c3639;
-  --c3: #4c3575;
-  --c4: #314256;
-}
-
-::selection {
-  background: var(--primary); /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: var(--primary); /* Gecko Browsers */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% -10%, rgba(15, 118, 110, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 15%, rgba(29, 78, 216, 0.08), transparent 50%),
+    var(--bg);
 }
 
 a {
-  color: var(--primary);
-  text-decoration: underline;
+  color: inherit;
+  text-decoration: none;
 }
 
-a:hover {
-  color: var(--secondary);
-  text-decoration: none;
-  cursor: pointer;
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 0.2rem solid var(--primary);
-  border-radius: 0.5rem;
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
-::-webkit-scrollbar {
-  width: 0.2rem;
-  height: 0.2rem;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border-radius: 100vw;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
-::-webkit-scrollbar-corner {
-  background: transparent;
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(12, 18, 28, 0.1);
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-@supports (scrollbar-color: red blue) {
-  * {
-    scrollbar-color: var(--primary) var(--radiance);
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.sectionLead {
+  margin: 0.85rem 0 0;
+  max-width: 38rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.gradientText {
+  background: linear-gradient(120deg, #0f766e 0%, #1d4ed8 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ambientOrb {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
-/* Global Color Variants */

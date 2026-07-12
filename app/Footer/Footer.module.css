@@ -1,15 +1,32 @@
 .footer {
   display: flex;
-  flex: 1;
-  height: 5vh;
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--primary);
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(12, 18, 28, 0.08);
+  background: rgba(255, 253, 248, 0.85);
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.copy {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.copy a {
+  color: #0f766e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.copy a:hover {
+  color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 5.25rem;
+  }
 }

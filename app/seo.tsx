@@ -1,18 +1,23 @@
-import { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
-  title: "John's Profile",
-  colorScheme: 'dark',
-  applicationName: "John's Profile",
-  description: 'This is my profile data of what I do, my past work, contact info etc..',
+  metadataBase: new URL('https://johnversus.dev'),
+  title: 'John Versus — Engineer & Builder',
+  applicationName: 'John Versus',
+  description:
+    'Portfolio of John Versus — self-taught full-stack engineer building polished web products, developer tools, and AI-powered apps.',
   manifest: '/favicon/site.webmanifest',
-  icons: { icon: ['/favicon/favicon-32x32.png', '/favicon/favicon-16x16.png'], apple: '/favicon/apple-touch-icon.png' },
+  icons: {
+    icon: ['/favicon/favicon-32x32.png', '/favicon/favicon-16x16.png'],
+    apple: '/favicon/apple-touch-icon.png',
+  },
   openGraph: {
     type: 'website',
-    siteName: "John's Profile",
+    siteName: 'John Versus',
     url: 'https://johnversus.dev',
-    title: "John's Profile",
-    description: 'This is my profile data of what I do, my past work, contact info etc..',
+    title: 'John Versus — Engineer & Builder',
+    description:
+      'Portfolio of John Versus — self-taught full-stack engineer building polished web products, developer tools, and AI-powered apps.',
     images: [
       {
         url: 'https://i.ibb.co/hsN3QLh/image.png',
@@ -25,11 +30,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "John's Profile",
-    description: 'This is my profile data of what I do, my past work, contact info etc..',
+    title: 'John Versus — Engineer & Builder',
+    description:
+      'Portfolio of John Versus — self-taught full-stack engineer building polished web products, developer tools, and AI-powered apps.',
     images: {
       url: 'https://i.ibb.co/hsN3QLh/image.png',
       alt: "John's Profile",
     },
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'light',
+  themeColor: '#f3f1ea',
+  width: 'device-width',
+  initialScale: 1,
 };

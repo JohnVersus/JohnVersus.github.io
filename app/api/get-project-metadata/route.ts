@@ -80,7 +80,6 @@ export async function POST(request: Request) {
     return res;
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error.message);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
     return NextResponse.json({ error: 'An unknown error occurred' }, { status: 500 });

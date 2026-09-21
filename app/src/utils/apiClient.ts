@@ -16,7 +16,6 @@ export const clientApiGet = async (endpoint: string, params: Record<string, unkn
     return await response.json();
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error.message);
       return { error: error.message };
     }
     return { error: 'Unknown error' };
